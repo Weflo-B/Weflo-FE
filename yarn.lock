@@ -2800,6 +2800,11 @@ scheduler@^0.23.0:
   dependencies:
     loose-envify "^1.1.0"
 
+scss-reset@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/scss-reset/-/scss-reset-1.4.2.tgz#0020fd9793286404a6cd9e97814102ad0942f049"
+  integrity sha512-eXtSeI5APjD/TtaIlRdiMRapgsX5GCP4I1Ti3FiUzCSE4GEYnfT1hGISrJkKGZsZbCDhwZv1bUdOOZfPGs3R1A==
+
 semver@^5.6.0:
   version "5.7.2"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.2.tgz#48d55db737c3287cd4835e17fa13feace1c41ef8"
