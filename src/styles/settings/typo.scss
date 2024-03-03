@@ -1,0 +1,89 @@
+@mixin H1 {
+  font: {
+    family: 'Pretendard';
+    size: 32px;
+    weight: 700;
+  }
+  line-height: normal;
+  letter-spacing: -0.114px;
+}
+
+@mixin H2 {
+  font: {
+    family: 'Pretendard';
+    size: 28px;
+    weight: 700;
+  }
+  line-height: normal;
+  letter-spacing: -0.114px;
+}
+
+@mixin H3 {
+  font: {
+    family: 'Pretendard';
+    size: 24px;
+    weight: 700;
+  }
+  line-height: normal;
+  letter-spacing: -0.114px;
+}
+
+@mixin H4 {
+  font: {
+    family: 'Pretendard';
+    size: 20px;
+    weight: 700;
+  }
+  line-height: normal;
+  letter-spacing: -0.114px;
+}
+
+@mixin H5 {
+  font: {
+    family: 'Pretendard';
+    size: 20px;
+    weight: 600;
+  }
+  line-height: normal;
+  letter-spacing: -0.114px;
+}
+
+@mixin Body1 {
+  font: {
+    family: 'Pretendard';
+    size: 18px;
+    weight: 700;
+  }
+  line-height: normal;
+  letter-spacing: -0.114px;
+}
+
+@mixin Body2 {
+  font: {
+    family: 'Pretendard';
+    size: 18px;
+    weight: 600;
+  }
+  line-height: normal;
+  letter-spacing: -0.114px;
+}
+
+@mixin Body3 {
+  font: {
+    family: 'Pretendard';
+    size: 18px;
+    weight: 400;
+  }
+  line-height: normal;
+  letter-spacing: -0.114px;
+}
+
+@mixin Body4 {
+  font: {
+    family: 'Pretendard';
+    size: 16px;
+    weight: 400;
+  }
+  line-height: normal;
+  letter-spacing: -0.114px;
+}
