@@ -8,6 +8,13 @@ import ProgressBar from '@/components/ProgressBar';
 import styles from '@/pages/Insurance/Insurance.module.scss';
 
 const Insurance = () => {
+  const submitContent = [
+    '• 보험금 청구서 (사업자 번호 필요)',
+    '• 신분증 (주민등록증이나 운전면허증 등)',
+    '• 손해배상금 및 그 밖의 비용 증명 서류',
+    '• 회사가 요구하는 그 밖의 서류',
+  ];
+
   return (
     <div className={styles.container}>
       <div className={styles.subHeader}>
@@ -59,6 +66,14 @@ const Insurance = () => {
           <InsuranceProcess index={2} />
           <img src={RightChevornProcess} alt="" />
           <InsuranceProcess index={3} />
+        </div>
+      </div>
+      <div className={styles.submit}>
+        <span className={styles.submitLabel}>보험 서류 제출</span>
+        <div className={styles.submitContent}>
+          {submitContent.map((content) => {
+            return <span>{content}</span>;
+          })}
         </div>
       </div>
     </div>

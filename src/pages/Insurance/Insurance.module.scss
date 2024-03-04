@@ -89,10 +89,31 @@
     @include H3;
     white-space: nowrap;
   }
+
+  .processContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
 }
 
-.processContainer {
+.submit {
+  margin-top: 42px;
+  margin-left: 78px;
   display: flex;
   flex-direction: row;
-  width: 100%;
+  gap: 50px;
+
+  .submitLabel {
+    @include H3;
+    white-space: nowrap;
+  }
+
+  .submitContent {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @include Body4;
+  }
 }
