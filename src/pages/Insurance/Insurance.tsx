@@ -2,6 +2,7 @@ import React from 'react';
 
 import RightChevornProcess from '@/assets/icons/rightChevron-process.svg';
 import RightChevron from '@/assets/icons/rightChevron.svg';
+import Button from '@/components/Button';
 import InsuranceContent from '@/components/InsuranceContent';
 import InsuranceProcess from '@/components/InsuranceProcess';
 import ProgressBar from '@/components/ProgressBar';
@@ -24,7 +25,9 @@ const Insurance = () => {
       </div>
       <div className={styles.header}>
         <div className={styles.label}>보험</div>
-        <div className={styles.btn}>버튼</div>
+        <div className={styles.btn}>
+          <Button>보험금 청구 바로가기</Button>
+        </div>
       </div>
       <div className={styles.dateContainer}>
         <div className={styles.date}>
