@@ -10,7 +10,9 @@ export const Navigation = () => {
 
   return (
     <nav className={styles.container}>
-      <img className={styles.logo} src={Logo} alt="logo" />
+      <Link to="/">
+        <img className={styles.logo} src={Logo} alt="logo" />
+      </Link>
       <ul>
         {NAVIGATION_MENU_LIST.map((menu) => (
           <Link key={menu.title} to={menu.path}>
