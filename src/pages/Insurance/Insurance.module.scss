@@ -30,7 +30,7 @@
 
 .header {
   margin-top: 28px;
-  margin-left: 2px;
+  margin-left: 42px;
 
   display: flex;
   justify-content: space-between;
@@ -48,7 +48,7 @@
 
 .dateContainer {
   margin-top: 42px;
-  margin-left: 36px;
+  margin-left: 78px;
 
   display: flex;
   flex-direction: column;
@@ -68,4 +68,12 @@
       @include Body3;
     }
   }
+}
+
+.content {
+  display: flex;
+  gap: 39px;
+  height: 299px;
+  margin-top: 42px;
+  margin-left: 78px;
 }
