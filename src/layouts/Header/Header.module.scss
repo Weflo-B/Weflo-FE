@@ -1,0 +1,31 @@
+@import 'src/styles/style.scss';
+
+.container {
+  display: flex;
+  gap: 30px;
+  padding: 19px 43px 16px 43px;
+  justify-content: flex-end;
+
+  .userInfo {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    .profile {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background-color: $main-1;
+      opacity: 0.58;
+    }
+
+    span {
+      color: #404040;
+      @include Body1;
+    }
+  }
+
+  .moreButton {
+    cursor: pointer;
+  }
+}
