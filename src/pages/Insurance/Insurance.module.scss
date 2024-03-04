@@ -5,6 +5,7 @@
   height: 100%;
   position: absolute;
   background-color: $background;
+  padding-right: 117px;
 }
 
 .subHeader {
@@ -30,7 +31,6 @@
 .header {
   margin-top: 28px;
   margin-left: 2px;
-  margin-right: 117px;
 
   display: flex;
   justify-content: space-between;
@@ -49,15 +49,16 @@
 .dateContainer {
   margin-top: 42px;
   margin-left: 36px;
-  width: fit-content;
+
   display: flex;
   flex-direction: column;
-  gap: 8px;
 
   .date {
+    width: fit-content;
     display: flex;
     justify-content: space-between;
     gap: 15px;
+    margin-bottom: 8px;
 
     :first-child {
       @include Body2;

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import LeftChevron from '@/assets/icons/leftChevron.svg';
+import ProgressBar from '@/components/ProgressBar';
 import styles from '@/pages/Insurance/Insurance.module.scss';
 
 const Insurance = () => {
@@ -24,6 +25,7 @@ const Insurance = () => {
           <span>다음 갱신일</span>
           <span>2025년 1월 1일</span>
         </div>
+        <ProgressBar progress={40} previousDays={267} remainDays={99} />
       </div>
     </div>
   );
