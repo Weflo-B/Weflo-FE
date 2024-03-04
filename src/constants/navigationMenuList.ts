@@ -3,6 +3,7 @@ import IconCheck from '@/assets/icons/check.svg';
 import IconDrone from '@/assets/icons/drone.svg';
 import IconMonitoring from '@/assets/icons/monitoring.svg';
 import IconPaper from '@/assets/icons/paper.svg';
+import IconTracking from '@/assets/icons/tracking.svg';
 
 // TODO: 주문/배송 조회 아이콘 수정
 export const NAVIGATION_MENU_LIST = [
@@ -24,7 +25,7 @@ export const NAVIGATION_MENU_LIST = [
   {
     title: '주문/배송 조회',
     path: '/tracking',
-    icon: IconBag,
+    icon: IconTracking,
   },
   {
     title: '수리/점검',
