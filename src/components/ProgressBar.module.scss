@@ -49,15 +49,22 @@
     background-color: #151515;
     opacity: 0.7;
     border-radius: 14px;
+    display: flex;
+    flex-direction: row;
 
     .label {
       display: flex;
       flex-direction: column;
       gap: 8px;
 
-      color: $white;
-
       @include Body4;
+      color: $white;
+    }
+
+    .img {
+      width: 18px;
+      height: 18px;
+      margin-left: 18px;
     }
   }
 
