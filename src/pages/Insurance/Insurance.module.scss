@@ -77,3 +77,22 @@
   margin-top: 42px;
   margin-left: 78px;
 }
+
+.process {
+  display: flex;
+  gap: 29px;
+  margin-left: 78px;
+  margin-top: 75px;
+
+  .processLabel {
+    margin-top: 7px;
+    @include H3;
+    white-space: nowrap;
+  }
+}
+
+.processContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}

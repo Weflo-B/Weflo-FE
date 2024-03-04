@@ -1,7 +1,9 @@
 import React from 'react';
 
-import LeftChevron from '@/assets/icons/leftChevron.svg';
+import RightChevornProcess from '@/assets/icons/rightChevron-process.svg';
+import RightChevron from '@/assets/icons/rightChevron.svg';
 import InsuranceContent from '@/components/InsuranceContent';
+import InsuranceProcess from '@/components/InsuranceProcess';
 import ProgressBar from '@/components/ProgressBar';
 import styles from '@/pages/Insurance/Insurance.module.scss';
 
@@ -10,7 +12,7 @@ const Insurance = () => {
     <div className={styles.container}>
       <div className={styles.subHeader}>
         <span>보험</span>
-        <img src={LeftChevron} alt="left-chevron" />
+        <img src={RightChevron} alt="left-chevron" />
         <span>가입자</span>
       </div>
       <div className={styles.header}>
@@ -46,6 +48,18 @@ const Insurance = () => {
             '• 언제, 어디서, 어떻게 사고가 발생하였는지에 대한 상황',
           ]}
         />
+      </div>
+      <div className={styles.process}>
+        <span className={styles.processLabel}>보험급 지금 절차</span>
+        <div className={styles.processContainer}>
+          <InsuranceProcess index={0} />
+          <img src={RightChevornProcess} alt="" />
+          <InsuranceProcess index={1} />
+          <img src={RightChevornProcess} alt="" />
+          <InsuranceProcess index={2} />
+          <img src={RightChevornProcess} alt="" />
+          <InsuranceProcess index={3} />
+        </div>
       </div>
     </div>
   );
