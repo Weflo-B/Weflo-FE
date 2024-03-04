@@ -25,9 +25,7 @@ const Insurance = () => {
       </div>
       <div className={styles.header}>
         <div className={styles.label}>보험</div>
-        <div className={styles.btn}>
-          <Button>보험금 청구 바로가기</Button>
-        </div>
+        <Button>보험금 청구 바로가기</Button>
       </div>
       <div className={styles.dateContainer}>
         <div className={styles.date}>
