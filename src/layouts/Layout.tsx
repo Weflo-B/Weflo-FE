@@ -9,9 +9,11 @@ export const Layout = () => {
   return (
     <div className={styles.container}>
       <Navigation />
-      <div>
+      <div className={styles.rightView}>
         <Header />
-        <Outlet />
+        <div className={styles.content}>
+          <Outlet />
+        </div>
       </div>
     </div>
   );
