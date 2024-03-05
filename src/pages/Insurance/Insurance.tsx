@@ -72,8 +72,8 @@ const Insurance = () => {
       <div className={styles.submit}>
         <span className={styles.submitLabel}>보험 서류 제출</span>
         <div className={styles.submitContent}>
-          {submitContent.map((content) => {
-            return <span>{content}</span>;
+          {submitContent.map((content, key) => {
+            return <span key={key}>{content}</span>;
           })}
         </div>
       </div>

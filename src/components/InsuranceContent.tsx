@@ -16,8 +16,8 @@ const InsuranceContent = ({ header, subHeader, labels }: InsuranceContentProp) =
       </div>
       <div className={styles.divider} />
       <div className={styles.contentElement}>
-        {labels?.map((text) => {
-          return <span>{text}</span>;
+        {labels?.map((text, key) => {
+          return <span key={key}>{text}</span>;
         })}
       </div>
     </div>

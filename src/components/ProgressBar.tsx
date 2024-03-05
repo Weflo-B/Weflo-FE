@@ -46,7 +46,7 @@ const ProgressBar = ({ progress, previousDays, remainDays }: ProgressBarProp) =>
         <span>보험요율</span>
         <div>{`${progress}`}%</div>
       </div>
-      {isLabel ? (
+      {isLabel && (
         <div className={styles.labelContainer} style={labelWidth} ref={labelRef}>
           <div className={styles.label}>
             <span>위플로우와 함께 한지 벌써 {previousDays}일째!</span>
@@ -54,8 +54,6 @@ const ProgressBar = ({ progress, previousDays, remainDays }: ProgressBarProp) =>
           </div>
           <img className={styles.img} src={Cancel} alt="취소" onClick={handleCancel} />
         </div>
-      ) : (
-        ''
       )}
     </div>
   );
