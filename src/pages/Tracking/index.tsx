@@ -104,7 +104,7 @@ export const Tracking = () => {
         </div>
       </div>
       <div className={styles.content}>
-        <OrderInformation information={Dummy2} />
+        <OrderInformation month={month} information={Dummy2} />
         <OrderSteps
           acitveState={acitveState}
           setActiveState={setActiveState}
