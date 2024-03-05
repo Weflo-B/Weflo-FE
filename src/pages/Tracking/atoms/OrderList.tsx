@@ -1,3 +1,4 @@
+import Button from '@/components/Button';
 import { OrderListData } from '@/types';
 
 import styles from './OrderList.module.scss';
@@ -36,7 +37,9 @@ export const OrderList = ({ orderList }: OrderListProps) => {
                           <span className={styles.price}>{item.price.toLocaleString()}원</span>
                         </div>
                       </div>
-                      <button>배송상세 조회</button>
+                      <Button style={{ height: 'fit-content', padding: '20px 46px' }}>
+                        배송상세 조회
+                      </Button>
                     </div>
                   ))}
                 </div>
