@@ -5,13 +5,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import Cancel from '@/assets/icons/cancelBtn.svg';
 import styles from '@/components/ProgressBar.module.scss';
 
-interface IProp {
+interface ProgressBarProp {
   progress: number;
   previousDays: number;
   remainDays: number;
 }
 
-const ProgressBar = ({ progress, previousDays, remainDays }: IProp) => {
+const ProgressBar = ({ progress, previousDays, remainDays }: ProgressBarProp) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLDivElement>(null);
   const [labelPosition, setLabelPosition] = useState('0px');

@@ -6,14 +6,14 @@ import icon3 from '@/assets/icons/process3.svg';
 import icon4 from '@/assets/icons/process4.svg';
 import styles from '@/components/InsuranceProcess.module.scss';
 
-interface IProp {
+interface InsuranceProcessProp {
   index: number;
 }
 
 const icons = [icon1, icon2, icon3, icon4];
 const contents = ['서류 접수', '접수증 교부', '보험금 지급여부 결정', '보험금 지급'];
 
-const InsuranceProcess = ({ index }: IProp) => {
+const InsuranceProcess = ({ index }: InsuranceProcessProp) => {
   const widthStyle = index === 2 ? { width: '355px' } : {};
 
   return (

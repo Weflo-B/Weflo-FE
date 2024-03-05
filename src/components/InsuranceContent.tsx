@@ -2,12 +2,12 @@ import React from 'react';
 
 import styles from '@/components/InsuranceContent.module.scss';
 
-interface IProp {
+interface InsuranceContentProp {
   header: string;
   subHeader: string;
   labels: string[];
 }
-const InsuranceContent = ({ header, subHeader, labels }: IProp) => {
+const InsuranceContent = ({ header, subHeader, labels }: InsuranceContentProp) => {
   return (
     <div className={styles.insuranceContent}>
       <div className={styles.contentHeader}>

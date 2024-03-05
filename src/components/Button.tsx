@@ -2,10 +2,10 @@ import React from 'react';
 
 import styles from '@/components/Button.module.scss';
 
-interface IProp {
+interface ButtonProp {
   children: string;
 }
-const Button = ({ children }: IProp) => {
+const Button = ({ children }: ButtonProp) => {
   return <div className={styles.button}>{children}</div>;
 };
 
