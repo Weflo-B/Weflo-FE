@@ -1,0 +1,77 @@
+@import 'src/styles/style.scss';
+
+.listContainer {
+  padding: 40px;
+
+  background-color: $white;
+  box-shadow: 6px 6px 54px rgba(0, 0, 0, 0.05);
+  border-radius: 24px;
+
+  .orderListContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+
+    .date {
+      @include H5;
+      background-color: $gray-1;
+
+      padding: 18px 20px;
+      margin-bottom: 42px;
+      border-radius: 15px;
+    }
+
+    .itemList {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+
+      .itemContainer {
+        display: flex;
+        justify-content: space-between;
+
+        .itemInformationContainer {
+          display: flex;
+          gap: 27px;
+          align-items: center;
+
+          img {
+            width: 180px;
+            height: 180px;
+            border: 1px solid #d8d8d8;
+            border-radius: 14px;
+          }
+
+          .itemInformation {
+            display: flex;
+            flex-direction: column;
+
+            .title {
+              @include H4;
+              color: $black;
+              margin-bottom: 6px;
+            }
+
+            .description {
+              @include Body2;
+              color: $black;
+              font-weight: 500;
+              margin-bottom: 7px;
+            }
+
+            .state {
+              @include Body1;
+              color: $main-1;
+              margin-bottom: 30px;
+            }
+
+            .price {
+              @include H3;
+              color: $black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
