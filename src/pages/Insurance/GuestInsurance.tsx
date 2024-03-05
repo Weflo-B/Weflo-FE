@@ -49,9 +49,9 @@ const GuestInsurance = () => {
         </div>
         <div className={styles.commonDivider} />
         <div className={styles.contentList}>
-          {insuranceDropdown.map((t) => {
+          {insuranceDropdown.map((t, key) => {
             return (
-              <div className={styles.listElement}>
+              <div className={styles.listElement} key={key}>
                 <span>{t}</span>
                 <img src={DownChevorn} alt="더보기" />
               </div>
