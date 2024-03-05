@@ -7,9 +7,9 @@ interface ButtonProp {
 
 const Button = ({ children, style, ...props }: ButtonProp) => {
   return (
-    <div className={styles.button} style={style} {...props}>
+    <button type="button" className={styles.button} style={style} {...props}>
       {children}
-    </div>
+    </button>
   );
 };
 
