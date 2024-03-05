@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { MonthDropdown } from '@/pages/Tracking/atoms/MonthDropdown';
 import { OrderInformation } from '@/pages/Tracking/atoms/OrderInformation';
 import { OrderList } from '@/pages/Tracking/atoms/OrderList';
 import { OrderSteps } from '@/pages/Tracking/atoms/OrderSteps';
@@ -91,12 +92,16 @@ const Dummy2 = {
 
 export const Tracking = () => {
   const [acitveState, setActiveState] = useState<string>('total');
+  const [month, setMonth] = useState<number>(new Date().getMonth() + 1);
 
   return (
     <main className={styles.container}>
       <div className={styles.titleContainer}>
-        <span>주문/배송조회</span>
-        <span>주문 / 배송조회</span>
+        <span className={styles.pageDescription}>주문/배송조회</span>
+        <div className={styles.titleInnerContainer}>
+          <span className={styles.title}>주문 / 배송조회</span>
+          <MonthDropdown month={month} setMonth={setMonth} />
+        </div>
       </div>
       <div className={styles.content}>
         <OrderInformation information={Dummy2} />

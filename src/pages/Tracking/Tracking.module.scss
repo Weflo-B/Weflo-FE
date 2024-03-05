@@ -10,7 +10,7 @@
     gap: 12px;
     margin-bottom: 54px;
 
-    :first-child {
+    .pageDescription {
       color: #212121;
 
       font-family: Pretendard;
@@ -21,9 +21,14 @@
       opacity: 0.8;
     }
 
-    :nth-child(2) {
-      @include H1;
-      color: $main-5;
+    .titleInnerContainer {
+      display: flex;
+      gap: 44px;
+
+      .title {
+        @include H1;
+        color: $main-5;
+      }
     }
   }
 
