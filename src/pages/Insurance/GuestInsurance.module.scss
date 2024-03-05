@@ -1,1 +1,46 @@
 @import 'src/styles/style.scss';
+
+.container {
+  position: absolute;
+  background-color: $background;
+  padding-right: 117px;
+}
+
+.subHeader {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  margin-left: 40px;
+
+  :first-child {
+    // 타이포에 정의 x
+    font-family: 'Pretendard';
+    font-size: 17px;
+    font-weight: 500;
+    color: #212121;
+  }
+
+  :nth-child(3) {
+    @include Body2;
+    font-size: 17px;
+  }
+}
+
+.header {
+  margin-top: 28px;
+  margin-left: 42px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1115px;
+
+  .label {
+    @include H1;
+    color: $main-5;
+  }
+
+  .btn {
+    background-color: $main-3;
+  }
+}
