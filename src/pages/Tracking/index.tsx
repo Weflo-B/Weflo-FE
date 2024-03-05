@@ -17,7 +17,7 @@ const Dummy: OrderListData[] = [
         title: '블레이드',
         subTitle: 'DJI 아바타 드론 블레이드 프로펠러 교체용 경량 날개 팬 프로펠러 액세서리',
         count: 1,
-        state: 'preparing',
+        state: 'cancel',
         price: 7500,
       },
       {
