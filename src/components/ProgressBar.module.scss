@@ -1,0 +1,84 @@
+@import 'src/styles/style.scss';
+
+.container {
+  margin-top: 16px;
+  width: 100%;
+  height: 32px;
+  background: rgba(40, 155, 212, 0.2);
+  border-radius: 16px;
+
+  .progressBar {
+    height: 100%;
+    background-color: $main-1;
+    border-radius: 16px;
+
+    display: flex;
+    align-items: center;
+
+    :first-child {
+      margin-left: 12px;
+      margin-right: 7px;
+
+      @include Body2;
+      font-size: 14px;
+      color: $white;
+    }
+
+    :nth-child(2) {
+      padding-top: 2px;
+      padding-bottom: 2px;
+      padding-left: 6px;
+      padding-right: 6px;
+
+      display: flex;
+      align-items: center;
+
+      font-family: 'Pretendard';
+      font-size: 12px;
+      font-weight: 600;
+      color: #515151;
+      background-color: $white;
+      border-radius: 16px;
+    }
+  }
+
+  .labelContainer {
+    position: absolute;
+    top: 139px;
+    padding: 16px;
+    background-color: #151515;
+    opacity: 0.7;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: row;
+
+    .label {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      @include Body4;
+      color: $white;
+    }
+
+    .img {
+      width: 18px;
+      height: 18px;
+      margin-left: 18px;
+    }
+  }
+
+  .labelContainer:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 45%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top-color: #151515;
+    border-bottom: 0;
+    margin-left: -10px;
+    margin-bottom: -10px;
+  }
+}

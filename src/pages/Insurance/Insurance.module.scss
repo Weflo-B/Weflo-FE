@@ -1,0 +1,117 @@
+@import 'src/styles/style.scss';
+
+.container {
+  position: absolute;
+  background-color: $background;
+  padding-right: 117px;
+}
+
+.subHeader {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  margin-left: 40px;
+
+  :first-child {
+    // 타이포에 정의 x
+    font-family: 'Pretendard';
+    font-size: 17px;
+    font-weight: 500;
+    color: #212121;
+  }
+
+  :nth-child(3) {
+    @include Body2;
+    font-size: 17px;
+  }
+}
+
+.header {
+  margin-top: 28px;
+  margin-left: 42px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .label {
+    @include H1;
+    color: $main-5;
+  }
+
+  .btn {
+    background-color: $main-3;
+  }
+}
+
+.dateContainer {
+  margin-top: 42px;
+  margin-left: 78px;
+
+  display: flex;
+  flex-direction: column;
+
+  .date {
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 8px;
+
+    :first-child {
+      @include Body2;
+    }
+
+    :nth-child(2) {
+      @include Body3;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  gap: 39px;
+  height: 299px;
+  margin-top: 42px;
+  margin-left: 78px;
+}
+
+.process {
+  display: flex;
+  gap: 29px;
+  margin-left: 78px;
+  margin-top: 75px;
+
+  .processLabel {
+    margin-top: 7px;
+    @include H3;
+    white-space: nowrap;
+  }
+
+  .processContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+}
+
+.submit {
+  margin-top: 42px;
+  margin-left: 78px;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+
+  .submitLabel {
+    @include H3;
+    white-space: nowrap;
+  }
+
+  .submitContent {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @include Body4;
+  }
+}
