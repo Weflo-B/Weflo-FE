@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '@/components/InsuranceContent.module.scss';
+import styles from './InsuranceContent.module.scss';
 
 interface InsuranceContentProp {
   header: string;

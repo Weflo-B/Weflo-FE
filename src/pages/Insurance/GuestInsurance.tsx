@@ -3,7 +3,8 @@ import React from 'react';
 import DownChevorn from '@/assets/icons/downChevron.svg';
 import RightChevron from '@/assets/icons/rightChevron.svg';
 import Button from '@/components/Button';
-import styles from '@/pages/Insurance/GuestInsurance.module.scss';
+
+import styles from './GuestInsurance.module.scss';
 
 const GuestInsurance = () => {
   const insuranceDropdown = ['가입안내', '상품안내', '보상안내', '알아두실 사항'];

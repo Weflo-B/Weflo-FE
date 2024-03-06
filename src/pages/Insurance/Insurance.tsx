@@ -3,10 +3,11 @@ import React from 'react';
 import RightChevornProcess from '@/assets/icons/rightChevron-process.svg';
 import RightChevron from '@/assets/icons/rightChevron.svg';
 import Button from '@/components/Button';
-import InsuranceContent from '@/components/InsuranceContent';
-import InsuranceProcess from '@/components/InsuranceProcess';
-import ProgressBar from '@/components/ProgressBar';
-import styles from '@/pages/Insurance/Insurance.module.scss';
+import InsuranceContent from '@/pages/Insurance/atoms/InsuranceContent';
+import InsuranceProcess from '@/pages/Insurance/atoms/InsuranceProcess';
+import ProgressBar from '@/pages/Insurance/atoms/ProgressBar';
+
+import styles from './Insurance.module.scss';
 
 const Insurance = () => {
   const submitContent = [
@@ -25,7 +26,7 @@ const Insurance = () => {
       </div>
       <div className={styles.header}>
         <div className={styles.label}>보험</div>
-        <Button style={{ padding: '16px 45px' }}>보험금 청구 바로가기</Button>
+        <Button style={{ width: '238px' }}>보험금 청구 바로가기</Button>
       </div>
       <div className={styles.dateContainer}>
         <div className={styles.date}>

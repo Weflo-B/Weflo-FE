@@ -4,7 +4,8 @@ import icon1 from '@/assets/icons/process1.svg';
 import icon2 from '@/assets/icons/process2.svg';
 import icon3 from '@/assets/icons/process3.svg';
 import icon4 from '@/assets/icons/process4.svg';
-import styles from '@/components/InsuranceProcess.module.scss';
+
+import styles from './InsuranceProcess.module.scss';
 
 interface InsuranceProcessProp {
   index: number;
