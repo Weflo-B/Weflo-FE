@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Outlet } from 'react-router-dom';
+
 import RightChevornProcess from '@/assets/icons/rightChevron-process.svg';
 import RightChevron from '@/assets/icons/rightChevron.svg';
 import Button from '@/components/Button';
@@ -78,6 +80,7 @@ const Insurance = () => {
           })}
         </div>
       </div>
+      <Outlet />
     </div>
   );
 };
