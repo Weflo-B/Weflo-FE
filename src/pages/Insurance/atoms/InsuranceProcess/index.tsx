@@ -4,6 +4,7 @@ import icon1 from '@/assets/icons/process1.svg';
 import icon2 from '@/assets/icons/process2.svg';
 import icon3 from '@/assets/icons/process3.svg';
 import icon4 from '@/assets/icons/process4.svg';
+import { INSURACE_PROCESS_CONTENT } from '@/constants/insuranceConstants';
 
 import styles from './InsuranceProcess.module.scss';
 
@@ -12,7 +13,6 @@ interface InsuranceProcessProp {
 }
 
 const icons = [icon1, icon2, icon3, icon4];
-const contents = ['서류 접수', '접수증 교부', '보험금 지급여부 결정', '보험금 지급'];
 
 const InsuranceProcess = ({ index }: InsuranceProcessProp) => {
   const widthStyle = index === 2 ? { width: '355px' } : {};
@@ -21,7 +21,7 @@ const InsuranceProcess = ({ index }: InsuranceProcessProp) => {
     <div className={styles.processElement} style={widthStyle}>
       <div className={styles.label}>
         <span>{index + 1}</span>
-        <span>{contents[index]}</span>
+        <span>{INSURACE_PROCESS_CONTENT[index]}</span>
       </div>
       <img className={styles.icon} src={icons[index]} alt="" />
     </div>
