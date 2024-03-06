@@ -3,7 +3,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import Cancel from '@/assets/icons/cancelBtn.svg';
-import styles from '@/components/ProgressBar.module.scss';
+
+import styles from './ProgressBar.module.scss';
 
 interface ProgressBarProp {
   progress: number;

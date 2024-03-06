@@ -1,6 +1,10 @@
 @import 'src/styles/style.scss';
 
 .button {
+  width: 238px;
+  display: flex;
+  justify-content: center;
+  padding: 16px 0px;
   border-radius: 8px;
   background-color: $main-3;
 

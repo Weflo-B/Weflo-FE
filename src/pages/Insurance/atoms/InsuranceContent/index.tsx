@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '@/components/InsuranceContent.module.scss';
+import styles from './InsuranceContent.module.scss';
 
 interface InsuranceContentProp {
   header: string;
@@ -16,8 +16,8 @@ const InsuranceContent = ({ header, subHeader, labels }: InsuranceContentProp) =
       </div>
       <div className={styles.divider} />
       <div className={styles.contentElement}>
-        {labels?.map((text, key) => {
-          return <span key={key}>{text}</span>;
+        {labels?.map((text) => {
+          return <span key={text}>{text}</span>;
         })}
       </div>
     </div>

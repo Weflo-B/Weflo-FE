@@ -16,7 +16,7 @@ export const Navigation = () => {
       <ul>
         {NAVIGATION_MENU_LIST.map((menu) => (
           <Link key={menu.title} to={menu.path}>
-            <li className={location.pathname === menu.path ? styles.active : ''}>
+            <li className={location.pathname.startsWith(menu.path) ? styles.active : ''}>
               <img className={styles.icon} src={menu.icon} alt={menu.title} />
               <span>{menu.title}</span>
             </li>
