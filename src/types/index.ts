@@ -10,7 +10,7 @@ export interface OrderListData {
   }[];
 }
 
-export interface insuranceData {
+export interface InsuranceData {
   joinDate: string;
   nextDate: string;
   progress: {
@@ -30,7 +30,7 @@ export interface insuranceData {
   };
 }
 
-export interface guestInsuranceData {
+export interface GuestInsuranceData {
   benefit: {
     header: string;
     subHeader: string;
@@ -46,4 +46,16 @@ export interface guestInsuranceData {
       content: string;
     }[];
   };
+}
+
+export interface DroneData {
+  name: string;
+  balanceScore: number;
+  totalScore: number;
+  dronePart: {
+    kind: string;
+    detail: string;
+    price: number;
+    num: number;
+  }[];
 }
