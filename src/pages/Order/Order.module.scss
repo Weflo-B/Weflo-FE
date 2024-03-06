@@ -18,3 +18,64 @@
   @include H1;
   color: $main-5;
 }
+
+.content {
+  margin-top: 49px;
+}
+
+.droneContainer {
+  padding: 25px 22px 28px 32px;
+  background-color: $white;
+  border-radius: 18px;
+}
+
+.droneHeader {
+  width: 291px;
+}
+
+.droneProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16.5px;
+
+  @include H1;
+  font-size: 23.975px;
+  color: $main-5;
+}
+
+.scoreContainer {
+  width: 291px;
+  margin-top: 24px;
+  display: flex;
+
+  .scoreDivider {
+    width: 1px;
+    height: 75px;
+    background: #ebf0f3;
+  }
+
+  .score {
+    width: 145px;
+    padding: 5px 0px 10px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .label {
+      margin-top: 5px;
+      @include Body2;
+      color: #595959;
+      font-weight: 500;
+    }
+
+    .value {
+      margin-top: 7px;
+      @include H3;
+      color: #595959;
+      font-size: 26px;
+    }
+  }
+}
