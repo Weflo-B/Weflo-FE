@@ -11,8 +11,10 @@ export const Layout = () => {
       <Navigation />
       <div className={styles.rightView}>
         <Header />
-        <div className={styles.content}>
-          <Outlet />
+        <div className={styles.contentContainer}>
+          <div className={styles.content}>
+            <Outlet />
+          </div>
         </div>
       </div>
     </div>
