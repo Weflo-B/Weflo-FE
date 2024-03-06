@@ -1,0 +1,63 @@
+@import 'src/styles/style.scss';
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  animation: overlayShow 0.3s;
+}
+
+.content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+
+  width: 630px;
+  height: 360px;
+
+  background-color: $white;
+  border-radius: 24px;
+
+  animation: overlayShow 0.3s;
+
+  .contentInnerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+
+    .iconContainer {
+      width: 60px;
+      height: 60px;
+    }
+
+    .description {
+      color: $main-5;
+      @include H1;
+    }
+  }
+
+  .closed {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+  }
+}
