@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Outlet } from 'react-router-dom';
 
+import DroneImg from '@/assets/icons/droneImg.svg';
 import { DroneData } from '@/types';
 
 import styles from './Order.module.scss';
@@ -9,6 +10,7 @@ import styles from './Order.module.scss';
 const Order = () => {
   const Dummy: DroneData[] = [
     {
+      img: DroneImg,
       name: 'Test 1',
       balanceScore: 70,
       totalScore: 100,

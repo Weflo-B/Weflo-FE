@@ -49,6 +49,7 @@ export interface GuestInsuranceData {
 }
 
 export interface DroneData {
+  img: string;
   name: string;
   balanceScore: number;
   totalScore: number;

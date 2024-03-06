@@ -12,3 +12,12 @@ export const INSURANCE_SUBMIT_CONTENT = [
 ];
 
 export const INSURACE_DROP_DOWN = ['가입안내', '상품안내', '보상안내', '알아두실 사항'];
+
+export const PART_ORDER_LABELS = [
+  'Balance score',
+  'Total score',
+  '종류',
+  '상세 정보',
+  '가격',
+  '수량',
+];
