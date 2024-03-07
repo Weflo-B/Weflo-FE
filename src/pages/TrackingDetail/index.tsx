@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
 import IconCancel from '@/assets/icons/dialog/cancel.svg';
 import IconCompleted from '@/assets/icons/dialog/completed.svg';
 import Button from '@/components/Button';
@@ -25,6 +27,7 @@ const Dummy = {
 export const TrackingDetail = () => {
   const [activeCancelModal, setActiveCancelModal] = useState(false);
   const [activeCompletedModal, setActiveCompletedModal] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -42,7 +45,7 @@ export const TrackingDetail = () => {
         {Dummy.step === 'prepare' && (
           <Button
             style={{ position: 'absolute', bottom: '80px', left: '1565px' }}
-            onClick={() => setActiveCancelModal(true)}
+            onClick={() => setActiveCancelModal(true)} /* API 연결할 땐 이 로직 아님 */
           >
             주문 취소하기
           </Button>
@@ -50,7 +53,7 @@ export const TrackingDetail = () => {
         {Dummy.step === 'arrived' && (
           <Button
             style={{ position: 'absolute', bottom: '80px', left: '1565px' }}
-            onClick={() => setActiveCompletedModal(true)}
+            onClick={() => setActiveCompletedModal(true)} /* API 연결할 땐 이 로직 아님 */
           >
             교환/반품하기
           </Button>
@@ -61,7 +64,10 @@ export const TrackingDetail = () => {
           icon={<img src={IconCancel} alt="icon" />}
           text="주문이 취소되었습니다!"
           open={activeCancelModal}
-          onClick={() => setActiveCancelModal(false)}
+          onClick={() => {
+            setActiveCancelModal(false);
+            navigate('/tracking');
+          }}
         />
       )}
       {activeCompletedModal && (
@@ -69,7 +75,10 @@ export const TrackingDetail = () => {
           icon={<img src={IconCompleted} alt="icon" />}
           text="교환 / 반품 접수가 완료되었어요!"
           open={activeCompletedModal}
-          onClick={() => setActiveCompletedModal(false)}
+          onClick={() => {
+            setActiveCompletedModal(false);
+            navigate('/tracking');
+          }}
         />
       )}
     </>
