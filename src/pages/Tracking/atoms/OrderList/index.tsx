@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import Button from '@/components/Button';
 import { OrderListData } from '@/types';
 
@@ -42,9 +44,11 @@ export const OrderList = ({ orderList }: OrderListProps) => {
                         </div>
                       </div>
                       {item.state !== 'cancel' && (
-                        <Button style={{ height: 'fit-content', padding: '20px 46px' }}>
-                          배송상세 조회
-                        </Button>
+                        <Link to="detail">
+                          <Button style={{ height: 'fit-content', padding: '20px 46px' }}>
+                            배송상세 조회
+                          </Button>
+                        </Link>
                       )}
                     </div>
                   ))}
