@@ -3,6 +3,7 @@ import React from 'react';
 import { DronePartDetailData } from '@/types';
 
 import styles from './DroneDetailItem.module.scss';
+import PartOnSale from './PartOnSale';
 
 interface DroneDetailItemProps {
   drone: DronePartDetailData;
@@ -37,9 +38,9 @@ const DroneDetailItem = ({ drone }: DroneDetailItemProps) => {
                         key={index}
                       >
                         <div className={styles.partKind}>{kind}</div>
-                        {details.map((detail) => {
+                        {details.map((detail, index) => {
                           return (
-                            <div className={styles.partDetail}>
+                            <div className={styles.partDetail} key={index}>
                               <div>
                                 {detail.name} ({detail.score}점)
                               </div>
@@ -55,7 +56,11 @@ const DroneDetailItem = ({ drone }: DroneDetailItemProps) => {
           </div>
         </div>
       </div>
-      <div className={styles.content}></div>
+      <div className={styles.content}>
+        {drone.salePart.map((part, index) => {
+          return <PartOnSale part={part} key={index} />;
+        })}
+      </div>
     </div>
   );
 };

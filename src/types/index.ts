@@ -62,24 +62,27 @@ export interface DronePartData {
   }[];
 }
 
+export interface PartOnSaleData {
+  [kind: string]: {
+    img: string;
+    detail: string;
+    salePrice: number;
+    wefloPrice: number;
+    num: number;
+    arrivalDate: string;
+  };
+}
+
 export interface DronePartDetailData {
   img: string;
   name: string;
   id: number;
   orderDate: string;
-  arrivalDate: string;
   currentPart: {
     [kind: string]: {
       name: string;
       score: number;
     }[];
   }[];
-  salePart: {
-    [kind: string]: {
-      detail: string;
-      salePrice: number;
-      wefloPrice: number;
-      num: number;
-    };
-  }[];
+  salePart: PartOnSaleData[];
 }
