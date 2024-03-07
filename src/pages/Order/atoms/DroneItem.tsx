@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router-dom';
 
 import { PART_ORDER_LABELS } from '@/constants/orderConstants';
 import styles from '@/pages/Order/atoms/DroneItem.module.scss';
-import { DroneData } from '@/types';
+import { DronePartData } from '@/types';
 
 interface DroneItemProps {
-  drone: DroneData;
+  drone: DronePartData;
 }
 
 const DroneItem = ({ drone }: DroneItemProps) => {

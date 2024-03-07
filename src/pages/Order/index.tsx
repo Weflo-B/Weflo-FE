@@ -4,17 +4,17 @@ import { Outlet } from 'react-router-dom';
 
 import DroneImg from '@/assets/icons/droneImg.svg';
 import FloatingBtn from '@/assets/icons/floatingBtn.svg';
-import { DroneData } from '@/types';
+import { DronePartData } from '@/types';
 
 import styles from './Order.module.scss';
 import DroneItem from './atoms/DroneItem';
 
 const Order = () => {
-  const Dummy: DroneData[] = [
+  const Dummy: DronePartData[] = [
     {
       img: DroneImg,
       name: 'Test 1',
-      id: 1,
+      id: 0,
       balanceScore: 70,
       totalScore: 100,
       dronePart: [
@@ -41,7 +41,7 @@ const Order = () => {
     {
       img: DroneImg,
       name: 'Test 1',
-      id: 2,
+      id: 1,
       balanceScore: 70,
       totalScore: 100,
       dronePart: [

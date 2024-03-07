@@ -48,7 +48,7 @@ export interface GuestInsuranceData {
   };
 }
 
-export interface DroneData {
+export interface DronePartData {
   img: string;
   name: string;
   id: number;
@@ -59,5 +59,27 @@ export interface DroneData {
     detail: string;
     price: number;
     num: number;
+  }[];
+}
+
+export interface DronePartDetailData {
+  img: string;
+  name: string;
+  id: number;
+  orderDate: string;
+  arrivalDate: string;
+  currentPart: {
+    [kind: string]: {
+      name: string;
+      score: number;
+    }[];
+  }[];
+  salePart: {
+    [kind: string]: {
+      detail: string;
+      salePrice: number;
+      wefloPrice: number;
+      num: number;
+    };
   }[];
 }
