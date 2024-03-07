@@ -69,7 +69,7 @@ const DroneItem = ({ drone }: DroneItemProps) => {
                     }
 
                     return (
-                      <td className={`${isCenter ? styles.trIsCenter : ''}`} key={t.kind}>
+                      <td className={`${isCenter ? styles.trIsCenter : ''}`} key={v}>
                         {isPrice ? price + '원' : v}
                       </td>
                     );

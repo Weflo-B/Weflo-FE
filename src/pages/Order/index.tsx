@@ -13,6 +13,7 @@ const Order = () => {
     {
       img: DroneImg,
       name: 'Test 1',
+      id: 1,
       balanceScore: 70,
       totalScore: 100,
       dronePart: [
@@ -39,6 +40,7 @@ const Order = () => {
     {
       img: DroneImg,
       name: 'Test 1',
+      id: 2,
       balanceScore: 70,
       totalScore: 100,
       dronePart: [
@@ -72,7 +74,7 @@ const Order = () => {
       <div className={styles.header}>부품 주문</div>
       <div className={styles.content}>
         {Dummy.map((data) => {
-          return <DroneItem drone={data} />;
+          return <DroneItem key={data.id} drone={data} />;
         })}
       </div>
       <Outlet />
