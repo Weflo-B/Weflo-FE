@@ -1,9 +1,11 @@
 @import 'src/styles/style.scss';
 
 .container {
+  position: relative;
   padding: 25px 22px 28px 32px;
   background-color: $white;
   border-radius: 18px;
+  margin-bottom: 29px;
 
   display: flex;
 }
@@ -140,4 +142,17 @@
       }
     }
   }
+}
+
+.infoBtn {
+  position: absolute;
+  bottom: 28px;
+  right: 29px;
+  padding: 12px 34px;
+  background: #d8e7ee;
+  border-radius: 15.983px;
+
+  @include Body2;
+  color: $main-5;
+  text-align: center;
 }

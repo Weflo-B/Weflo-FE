@@ -80,6 +80,9 @@ const DroneItem = ({ drone }: DroneItemProps) => {
           </tbody>
         </table>
       </div>
+      <button type="button" className={styles.infoBtn}>
+        상세정보
+      </button>
     </div>
   );
 };
