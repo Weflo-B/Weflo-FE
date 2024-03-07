@@ -20,7 +20,7 @@ export const Router = () => {
         </Route>
         <Route path="/order" element={<Outlet />}>
           <Route index element={<Order />} />
-          <Route path="detail" element={<OrderDetail />} />
+          <Route path="detail/:droneId" element={<OrderDetail />} />
           <Route path="estimate" element={<OrderEstimate />} />
         </Route>
         <Route path="/tracking" element={<Tracking />} />

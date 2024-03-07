@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
 import { PART_ORDER_LABELS } from '@/constants/orderConstants';
 import styles from '@/pages/Order/atoms/DroneItem.module.scss';
 import { DroneData } from '@/types';
@@ -9,12 +11,15 @@ interface DroneItemProps {
 }
 
 const DroneItem = ({ drone }: DroneItemProps) => {
+  const droneId = drone.id;
   const tableHeader = [
     PART_ORDER_LABELS[2],
     PART_ORDER_LABELS[3],
     PART_ORDER_LABELS[4],
     PART_ORDER_LABELS[5],
   ];
+
+  const navigator = useNavigate();
 
   const addComma = (price: number) => {
     const returnString = price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -80,7 +85,11 @@ const DroneItem = ({ drone }: DroneItemProps) => {
           </tbody>
         </table>
       </div>
-      <button type="button" className={styles.infoBtn}>
+      <button
+        type="button"
+        className={styles.infoBtn}
+        onClick={() => navigator(`/order/detail/${droneId}`)}
+      >
         상세정보
       </button>
     </div>
