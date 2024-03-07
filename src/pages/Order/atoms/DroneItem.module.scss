@@ -1,0 +1,143 @@
+@import 'src/styles/style.scss';
+
+.container {
+  padding: 25px 22px 28px 32px;
+  background-color: $white;
+  border-radius: 18px;
+
+  display: flex;
+}
+
+.droneHeader {
+  width: 291px;
+}
+
+.droneProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16.5px;
+
+  @include H1;
+  font-size: 23.975px;
+  color: $main-5;
+}
+
+.scoreContainer {
+  width: 291px;
+  margin-top: 24px;
+  display: flex;
+
+  .scoreDivider {
+    width: 1px;
+    height: 75px;
+    background: #ebf0f3;
+  }
+
+  .score {
+    width: 145px;
+    padding: 5px 0px 10px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .label {
+      margin-top: 5px;
+      @include Body2;
+      color: #595959;
+      font-weight: 500;
+    }
+
+    .value {
+      margin-top: 7px;
+      @include H3;
+      color: #595959;
+      font-size: 26px;
+    }
+  }
+}
+
+.droneInfo {
+  width: 100%;
+  margin-left: 34px;
+
+  .table {
+    width: 100%;
+
+    .tableHeader {
+      background-color: #fafafb;
+
+      color: $main-5;
+      font-family: Pretendard;
+      font-size: 14px;
+      font-weight: 800;
+
+      :first-child {
+        padding: 10px 0px 10px 59px;
+
+        border-collapse: collapse;
+        border-radius: 9px 0px 0px 0px;
+        border: 0.6px solid $gray-2;
+        border-right: hidden;
+      }
+
+      :nth-child(2),
+      :nth-child(3) {
+        padding: 10px 0px;
+
+        border-collapse: collapse;
+        border: 0.6px solid $gray-2;
+        border-right: hidden;
+        border-left: hidden;
+      }
+
+      :last-child {
+        padding: 10px 108px 10px 0px;
+
+        border-collapse: collapse;
+        border-radius: 0px 9px 0px 0px;
+        border: 0.6px solid $gray-2;
+        border-left: hidden;
+      }
+
+      .thNotCenter {
+        text-align: left;
+      }
+    }
+
+    .tableContent {
+      border-bottom: 0.4px solid rgb(151, 151, 151, 0.6);
+
+      :first-child {
+        padding: 18px 0px 20px 59px;
+
+        color: $main-5;
+        font-family: Pretendard;
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      :nth-child(2),
+      :nth-child(3) {
+        padding: 18px 0px 20px 0px;
+
+        @include Body4;
+        font-size: 14px;
+      }
+
+      :last-child {
+        padding: 18px 108px 20px 0px;
+
+        @include Body2;
+        font-size: 14px;
+        color: $main-5;
+      }
+
+      .trIsCenter {
+        text-align: center;
+      }
+    }
+  }
+}

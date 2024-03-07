@@ -3,10 +3,10 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 
 import DroneImg from '@/assets/icons/droneImg.svg';
-import { PART_ORDER_LABELS } from '@/constants/orderConstants';
 import { DroneData } from '@/types';
 
 import styles from './Order.module.scss';
+import DroneItem from './atoms/DroneItem';
 
 const Order = () => {
   const Dummy: DroneData[] = [
@@ -46,27 +46,7 @@ const Order = () => {
       <div className={styles.header}>부품 주문</div>
       <div className={styles.content}>
         {Dummy.map((data) => {
-          return (
-            <div className={styles.droneContainer} key={data.name}>
-              <div className={styles.droneHeader}>
-                <div className={styles.droneProfile}>
-                  <img src={data.img} alt="드론 이미지" />
-                  <div>{data.name}</div>
-                </div>
-                <div className={styles.scoreContainer}>
-                  <div className={styles.score}>
-                    <div className={styles.label}>{PART_ORDER_LABELS[0]}</div>
-                    <div className={styles.value}>{data.balanceScore}</div>
-                  </div>
-                  <div className={styles.scoreDivider} />
-                  <div className={styles.score}>
-                    <div className={styles.label}>{PART_ORDER_LABELS[1]}</div>
-                    <div className={styles.value}>{data.totalScore}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          );
+          return <DroneItem drone={data} />;
         })}
       </div>
       <Outlet />
