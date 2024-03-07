@@ -3,6 +3,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 
 import DroneImg from '@/assets/icons/droneImg.svg';
+import FloatingBtn from '@/assets/icons/floatingBtn.svg';
 import { DroneData } from '@/types';
 
 import styles from './Order.module.scss';
@@ -76,6 +77,12 @@ const Order = () => {
         {Dummy.map((data) => {
           return <DroneItem key={data.id} drone={data} />;
         })}
+      </div>
+      <div className={styles.floatingBtnContainer}>
+        <button type="button" className={styles.floatingBtn}>
+          <img src={FloatingBtn} alt="플로팅 버튼" />
+          <div>견적서</div>
+        </button>
       </div>
       <Outlet />
     </div>
