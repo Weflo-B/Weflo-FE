@@ -2,8 +2,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useRef, useState } from 'react';
 
-import Cancel from '@/assets/icons/cancelBtn.svg';
-
 import styles from './ProgressBar.module.scss';
 
 interface ProgressBarProp {

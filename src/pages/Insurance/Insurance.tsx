@@ -38,7 +38,7 @@ const INSURANCE_TERM = {
 const Insurance = () => {
   const [user, setUser] = useState<insuranceData>();
 
-  const { data, error } = useQuery({
+  const { data } = useQuery({
     queryKey: ['INSURANCE', 'JOINED', USER_ID],
     queryFn: () => getInsruance(USER_ID),
   });
