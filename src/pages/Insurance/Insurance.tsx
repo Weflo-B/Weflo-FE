@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { useQuery } from 'react-query';
 import { Outlet } from 'react-router-dom';
 
 import RightChevornProcess from '@/assets/icons/rightChevron-process.svg';
@@ -9,7 +10,9 @@ import { INSURANCE_SUBMIT_CONTENT } from '@/constants/insuranceConstants';
 import InsuranceContent from '@/pages/Insurance/atoms/InsuranceContent';
 import InsuranceProcess from '@/pages/Insurance/atoms/InsuranceProcess';
 import ProgressBar from '@/pages/Insurance/atoms/ProgressBar';
-import { InsuranceData } from '@/types';
+import { USER_ID } from '@/services';
+import { getInsruance } from '@/services/insuranceApi';
+import { insuranceData } from '@/types';
 
 import styles from './Insurance.module.scss';
 
@@ -33,6 +36,11 @@ const INSURANCE_TERM = {
 };
 
 const Insurance = () => {
+  const { data, error } = useQuery({
+    queryKey: ['INSURANCE', 'JOINED', USER_ID],
+    queryFn: () => getInsruance(USER_ID),
+  });
+
   return (
     <div className={styles.container}>
       <div className={styles.subHeader}>
