@@ -10,7 +10,7 @@ export interface OrderListData {
   }[];
 }
 
-export interface insuranceData {
+export interface InsuranceData {
   joinDate: string;
   nextDate: string;
   progress: {
@@ -30,7 +30,7 @@ export interface insuranceData {
   };
 }
 
-export interface guestInsuranceData {
+export interface GuestInsuranceData {
   benefit: {
     header: string;
     subHeader: string;
@@ -46,4 +46,43 @@ export interface guestInsuranceData {
       content: string;
     }[];
   };
+}
+
+export interface DronePartData {
+  img: string;
+  name: string;
+  id: number;
+  balanceScore: number;
+  totalScore: number;
+  dronePart: {
+    kind: string;
+    detail: string;
+    price: number;
+    num: number;
+  }[];
+}
+
+export interface PartOnSaleData {
+  [kind: string]: {
+    img: string;
+    detail: string;
+    salePrice: number;
+    wefloPrice: number;
+    num: number;
+    arrivalDate: string;
+  };
+}
+
+export interface DronePartDetailData {
+  img: string;
+  name: string;
+  id: number;
+  orderDate: string;
+  currentPart: {
+    [kind: string]: {
+      name: string;
+      score: number;
+    }[];
+  }[];
+  salePart: PartOnSaleData[];
 }

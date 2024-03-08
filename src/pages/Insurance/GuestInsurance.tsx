@@ -4,12 +4,12 @@ import DownChevorn from '@/assets/icons/downChevron.svg';
 import RightChevron from '@/assets/icons/rightChevron.svg';
 import Button from '@/components/Button';
 import { INSURACE_DROP_DOWN } from '@/constants/insuranceConstants';
-import { guestInsuranceData } from '@/types';
+import { GuestInsuranceData } from '@/types';
 
 import styles from './GuestInsurance.module.scss';
 
 const GuestInsurance = () => {
-  const Dummy: guestInsuranceData = {
+  const Dummy: GuestInsuranceData = {
     benefit: {
       header: '위플로 X 한화손해보험',
       subHeader: '드론배상책임보험, 위플로와 함께하세요!',

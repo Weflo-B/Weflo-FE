@@ -9,12 +9,12 @@ import { INSURANCE_SUBMIT_CONTENT } from '@/constants/insuranceConstants';
 import InsuranceContent from '@/pages/Insurance/atoms/InsuranceContent';
 import InsuranceProcess from '@/pages/Insurance/atoms/InsuranceProcess';
 import ProgressBar from '@/pages/Insurance/atoms/ProgressBar';
-import { insuranceData } from '@/types';
+import { InsuranceData } from '@/types';
 
 import styles from './Insurance.module.scss';
 
 const Insurance = () => {
-  const Dummy: insuranceData = {
+  const Dummy: InsuranceData = {
     joinDate: '2024년 1월 1일',
     nextDate: '2025년 1월 1일',
     progress: {
