@@ -13,7 +13,7 @@ export interface OrderListData {
 export interface insuranceData {
   isJoin: boolean;
   joinDate: string;
-  nextDate: string;
+  updateDate: string;
   insuranceRate: number;
 }
 

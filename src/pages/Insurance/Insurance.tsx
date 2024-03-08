@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useQuery } from 'react-query';
 import { Outlet } from 'react-router-dom';
@@ -36,10 +36,18 @@ const INSURANCE_TERM = {
 };
 
 const Insurance = () => {
+  const [user, setUser] = useState<insuranceData>();
+
   const { data, error } = useQuery({
     queryKey: ['INSURANCE', 'JOINED', USER_ID],
     queryFn: () => getInsruance(USER_ID),
   });
+
+  useEffect(() => {
+    if (data) {
+      setUser(data);
+    }
+  }, [data]);
 
   return (
     <div className={styles.container}>
@@ -55,17 +63,19 @@ const Insurance = () => {
       <div className={styles.dateContainer}>
         <div className={styles.date}>
           <span>보험 가입일</span>
-          {/* <span>{Dummy.joinDate}</span> */}
+          <span>{user?.joinDate}</span>
         </div>
         <div className={styles.date}>
           <span>다음 갱신일</span>
-          {/* <span>{Dummy.nextDate}</span> */}
+          <span>{user?.updateDate}</span>
         </div>
-        {/* <ProgressBar
-          progress={Dummy.progress.progressRate}
-          previousDays={Dummy.progress.previousDay}
-          remainDays={Dummy.progress.remainDays}
-        /> */}
+        <ProgressBar
+          progress={user?.insuranceRate || 0}
+          previousDays={0}
+          remainDays={0}
+          // previousDays={Dummy.progress.previousDay}
+          // remainDays={Dummy.progress.remainDays}
+        />
       </div>
       <div className={styles.content}>
         <InsuranceContent
