@@ -77,6 +77,17 @@
   margin-left: 78px;
 }
 
+.termDetail {
+  display: flex;
+  justify-content: flex-end;
+  align-items: start;
+  gap: 6px;
+  margin-top: 14px;
+  margin-right: 18px;
+
+  text-decoration: underline;
+}
+
 .process {
   display: flex;
   gap: 29px;

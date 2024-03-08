@@ -5,6 +5,7 @@ import { Outlet } from 'react-router-dom';
 
 import RightChevornProcess from '@/assets/icons/rightChevron-process.svg';
 import RightChevron from '@/assets/icons/rightChevron.svg';
+import TermEllipse from '@/assets/icons/termEllipse.svg';
 import Button from '@/components/Button';
 import { INSURANCE_SUBMIT_CONTENT } from '@/constants/insuranceConstants';
 import InsuranceContent from '@/pages/Insurance/atoms/InsuranceContent';
@@ -117,6 +118,10 @@ const Insurance = () => {
           subHeader={INSURANCE_TERM.subHeader}
           labels={INSURANCE_TERM.labels}
         />
+      </div>
+      <div className={styles.termDetail}>
+        <img src={TermEllipse} alt="약관 자세히보기 아이콘" />
+        <div className={styles.termLabel}>자세한 내용은 보험 약관 참고</div>
       </div>
       <div className={styles.process}>
         <span className={styles.processLabel}>보험급 지금 절차</span>
