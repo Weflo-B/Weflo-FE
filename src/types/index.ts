@@ -10,24 +10,11 @@ export interface OrderListData {
   }[];
 }
 
-export interface InsuranceData {
+export interface insuranceData {
+  isJoin: boolean;
   joinDate: string;
   nextDate: string;
-  progress: {
-    progressRate: number;
-    previousDay: number;
-    remainDays: number;
-  };
-  insuranceContent: {
-    header: string;
-    subHeader: string;
-    labels: string[];
-  };
-  insuranceTerm: {
-    header: string;
-    subHeader: string;
-    labels: string[];
-  };
+  insuranceRate: number;
 }
 
 export interface GuestInsuranceData {
