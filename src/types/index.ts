@@ -10,6 +10,10 @@ export interface OrderListData {
   }[];
 }
 
+export interface InsuranceDataContent {
+  [kind: string]: string[];
+}
+
 export interface insuranceData {
   isJoin: boolean;
   joinDate: string;
@@ -30,7 +34,7 @@ export interface GuestInsuranceData {
     subHeader: string;
     dropDown: {
       header: string;
-      content: string;
+      content: InsuranceDataContent[];
     }[];
   };
 }
