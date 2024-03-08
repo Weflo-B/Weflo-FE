@@ -43,6 +43,28 @@ const Insurance = () => {
     queryFn: () => getInsruance(USER_ID),
   });
 
+  const today = new Date();
+  const todayString = today.toISOString();
+
+  const formatDate = (stringDate: string) => {
+    const d = new Date(stringDate);
+    const date = new Intl.DateTimeFormat('ko-KR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }).format(d);
+
+    return date;
+  };
+
+  const calculateDays = (startDate: string, endDate: string) => {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    const diffSec = end.getTime() - start.getTime();
+    const diffDays = diffSec / (1000 * 60 * 60 * 24);
+    return Math.floor(diffDays); // 몫만 반환
+  };
+
   useEffect(() => {
     if (data) {
       setUser(data);
@@ -63,18 +85,16 @@ const Insurance = () => {
       <div className={styles.dateContainer}>
         <div className={styles.date}>
           <span>보험 가입일</span>
-          <span>{user?.joinDate}</span>
+          <span>{user?.joinDate && formatDate(user.joinDate)}</span>
         </div>
         <div className={styles.date}>
           <span>다음 갱신일</span>
-          <span>{user?.updateDate}</span>
+          <span>{user?.updateDate && formatDate(user.updateDate)}</span>
         </div>
         <ProgressBar
           progress={user?.insuranceRate || 0}
-          previousDays={0}
-          remainDays={0}
-          // previousDays={Dummy.progress.previousDay}
-          // remainDays={Dummy.progress.remainDays}
+          previousDays={user?.joinDate ? calculateDays(user.joinDate, todayString) + 1 : 0}
+          remainDays={user?.joinDate ? calculateDays(todayString, user.updateDate) : 0}
         />
       </div>
       <div className={styles.content}>

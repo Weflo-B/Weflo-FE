@@ -42,7 +42,7 @@
     }
   }
 
-  .labelContainer {
+  .label {
     position: absolute;
     top: 139px;
     padding: 16px;
@@ -52,23 +52,15 @@
     display: flex;
     flex-direction: row;
 
-    .label {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 
-      @include Body4;
-      color: $white;
-    }
-
-    .img {
-      width: 18px;
-      height: 18px;
-      margin-left: 18px;
-    }
+    @include Body4;
+    color: $white;
   }
 
-  .labelContainer:after {
+  .label:after {
     content: '';
     position: absolute;
     bottom: 0;
