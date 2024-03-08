@@ -69,7 +69,10 @@
     width: 100%;
 
     .tableHeader {
-      background-color: #fafafb;
+      // background-color: #fafafb;
+      border: 0.6px solid $gray-2;
+      border-radius: 9px 9px 0px 0px;
+      background-color: $gray-1;
 
       color: $main-5;
       font-family: Pretendard;
@@ -78,30 +81,10 @@
 
       :first-child {
         padding: 10px 0px 10px 59px;
-
-        border-collapse: collapse;
-        border-radius: 9px 0px 0px 0px;
-        border: 0.6px solid $gray-2;
-        border-right: hidden;
-      }
-
-      :nth-child(2),
-      :nth-child(3) {
-        padding: 10px 0px;
-
-        border-collapse: collapse;
-        border: 0.6px solid $gray-2;
-        border-right: hidden;
-        border-left: hidden;
       }
 
       :last-child {
         padding: 10px 108px 10px 0px;
-
-        border-collapse: collapse;
-        border-radius: 0px 9px 0px 0px;
-        border: 0.6px solid $gray-2;
-        border-left: hidden;
       }
 
       .thNotCenter {
