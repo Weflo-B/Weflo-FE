@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { DronePartDetailData } from '@/types';
 
 import styles from './DroneDetailItem.module.scss';

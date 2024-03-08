@@ -1,5 +1,3 @@
-import React from 'react';
-
 import priceSale from '@/assets/icons/priceSale.svg';
 import { PartOnSaleData } from '@/types';
 
