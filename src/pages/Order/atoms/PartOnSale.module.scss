@@ -6,9 +6,12 @@
   border-radius: 14px;
   border: 2px solid $background;
   padding: 12px 18px 19px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.header {
+.date {
   width: 100%;
   text-align: center;
   margin-bottom: 12px;
@@ -51,15 +54,30 @@
   flex-direction: column;
   gap: 7px;
   margin-left: 13px;
+  margin-top: max;
 
   .salePrice {
     display: flex;
     align-items: baseline;
+    overflow: visible;
     gap: 48.5px;
+    flex-wrap: nowrap;
     color: #7b7b7b;
 
     .value {
-      @include Body4;
+      position: relative;
+      width: 73px;
+
+      display: flex;
+      justify-content: center;
+
+      .text {
+        @include Body4;
+      }
+      .saleImg {
+        position: absolute;
+        top: 40%;
+      }
     }
   }
 
@@ -70,6 +88,7 @@
 
     .value {
       margin-left: 17px;
+      position: relative;
       @include H3;
     }
   }

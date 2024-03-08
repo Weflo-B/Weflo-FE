@@ -54,16 +54,16 @@ const OrderDetail = () => {
           num: 1,
         },
       },
-      // {
-      //   ESC: {
-      //     img: DummyPart3,
-      //     arrivalDate: '2024년 1월 28일',
-      //     detail: 'DJI Agras 드론 ESC 모듈 T30 T10 T40 T20P',
-      //     salePrice: 8800,
-      //     wefloPrice: 7500,
-      //     num: 1,
-      //   },
-      // },
+      {
+        ESC: {
+          img: DummyPart3,
+          arrivalDate: '2024년 1월 28일',
+          detail: 'DJI Agras 드론 ESC 모듈 T30 T10 T40 T20P',
+          salePrice: 8800,
+          wefloPrice: 7500,
+          num: 1,
+        },
+      },
     ],
   };
 
