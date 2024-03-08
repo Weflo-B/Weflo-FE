@@ -46,6 +46,9 @@ const Insurance = () => {
 
   const today = new Date();
   const todayString = today.toISOString();
+  const [lastDays, setLastDays] = useState<number>(0);
+  const [remainDays, setRemainDays] = useState<number>(0);
+  const [rate, setRate] = useState<number>(0);
 
   const formatDate = (stringDate: string) => {
     const d = new Date(stringDate);
@@ -73,6 +76,14 @@ const Insurance = () => {
   useEffect(() => {
     if (data) {
       setUser(data);
+
+      const last = calculateDays(data.joinDate, todayString) + 1;
+      const remain = calculateDays(todayString, data.updateDate);
+      const rate = (last / (last + remain)) * 100;
+
+      setLastDays(last);
+      setRemainDays(remain);
+      setRate(Math.floor(rate));
     }
   }, [data]);
 
@@ -101,11 +112,7 @@ const Insurance = () => {
           <span>다음 갱신일</span>
           <span>{user?.updateDate && formatDate(user.updateDate)}</span>
         </div>
-        <ProgressBar
-          progress={user?.insuranceRate || 0}
-          previousDays={user?.joinDate ? calculateDays(user.joinDate, todayString) + 1 : 0}
-          remainDays={user?.joinDate ? calculateDays(todayString, user.updateDate) : 0}
-        />
+        <ProgressBar progress={rate} previousDays={lastDays} remainDays={remainDays} />
       </div>
       <div className={styles.content}>
         <InsuranceContent
