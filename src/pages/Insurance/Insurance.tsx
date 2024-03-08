@@ -65,6 +65,10 @@ const Insurance = () => {
     return Math.floor(diffDays); // 몫만 반환
   };
 
+  const handleOpenTab = (url: string) => {
+    window.open(url, '_blank', 'noopener, noreferrer');
+  };
+
   useEffect(() => {
     if (data) {
       setUser(data);
@@ -80,7 +84,12 @@ const Insurance = () => {
       </div>
       <div className={styles.header}>
         <div className={styles.label}>보험</div>
-        <Button style={{ width: '238px' }}>보험금 청구 바로가기</Button>
+        <Button
+          style={{ width: '238px' }}
+          onClick={() => handleOpenTab('https://www.hwgeneralins.com/')}
+        >
+          보험금 청구 바로가기
+        </Button>
       </div>
       <div className={styles.dateContainer}>
         <div className={styles.date}>
