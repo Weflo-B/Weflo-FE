@@ -100,3 +100,25 @@ export interface GetEstimateData {
   }[];
   sumPrice: number;
 }
+
+export interface OrderStatuses {
+  amount: number;
+  statusName: string;
+}
+
+interface OrderHistories {
+  id: number;
+  category: string;
+  name: string;
+  salePrice: number;
+  amount: number;
+  orderDate: string;
+  productImage: string;
+  status: string;
+}
+
+export interface GetTrackingData {
+  sumPrice: number;
+  orderStatuses: OrderStatuses[];
+  orderHistories: OrderHistories[];
+}
