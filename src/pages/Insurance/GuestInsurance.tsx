@@ -8,6 +8,10 @@ import styles from './GuestInsurance.module.scss';
 import InsuranceDropDown from './atoms/InsuranceDropDown';
 
 const GuestInsurance = () => {
+  const handleOpenTab = (url: string) => {
+    window.open(url, '_blank', 'noopener, noreferrer');
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.subHeader}>
@@ -17,7 +21,9 @@ const GuestInsurance = () => {
       </div>
       <div className={styles.header}>
         <div className={styles.label}>보험</div>
-        <Button>보험 가입하기</Button>
+        <Button onClick={() => handleOpenTab('https://www.hwgeneralins.com/')}>
+          보험 가입하기
+        </Button>
       </div>
       <div className={styles.introduce}>
         <div className={styles.commonHeader}>
