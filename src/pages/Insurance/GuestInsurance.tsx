@@ -47,7 +47,7 @@ const GuestInsurance = () => {
       <div>
         {Dummy.insuranceItem.map((item) => {
           return (
-            <div className={styles.content}>
+            <div className={styles.content} key={item.header}>
               <div className={styles.commonHeader}>
                 <span>{item.header}</span>
                 <span>{item.subHeader}</span>
