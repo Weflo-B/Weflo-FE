@@ -1,49 +1,15 @@
 import React from 'react';
 
-import DownChevorn from '@/assets/icons/downChevron.svg';
 import RightChevron from '@/assets/icons/rightChevron.svg';
 import Button from '@/components/Button';
-import { INSURACE_DROP_DOWN } from '@/constants/insuranceConstants';
-import { GuestInsuranceData } from '@/types';
+import { Dummy } from '@/constants/insuranceConstants';
 
 import styles from './GuestInsurance.module.scss';
+import InsuranceDropDown from './atoms/InsuranceDropDown';
 
 const GuestInsurance = () => {
-  const Dummy: GuestInsuranceData = {
-    benefit: {
-      header: '위플로 X 한화손해보험',
-      subHeader: '드론배상책임보험, 위플로와 함께하세요!',
-      benefitList: [
-        '• 하나, 위플로 진단 서비스와 함께할수록 보험요율이 감소해요!',
-        '• 둘, 드론기체파손 특별약관으로 기체 보험과 배상 책임 보험을 동시에~',
-        '• 셋, 드론 진단부터 보험 청구까지, 간편하게 관리하세요!',
-      ],
-      contactNum: '01234-5678',
-      workingTime: '평일 AM 09:00 ~ PM 06:00',
-    },
-    insuranceItem: {
-      header: '드론 배상 책임 보험',
-      subHeader:
-        '드론 운항 중 발생하는 배상 책임 위험에 대해 집중적으로 보장해드립니다.<br></br>상업용 드론은 2020년 항공 사업법 개정 및 드론법 제정에 따라 의무적으로 보험에 가입하여야 합니다.',
-      dropDown: [
-        {
-          header: INSURACE_DROP_DOWN[0],
-          content: '',
-        },
-        {
-          header: INSURACE_DROP_DOWN[1],
-          content: '',
-        },
-        {
-          header: INSURACE_DROP_DOWN[2],
-          content: '',
-        },
-        {
-          header: INSURACE_DROP_DOWN[3],
-          content: '',
-        },
-      ],
-    },
+  const handleOpenTab = (url: string) => {
+    window.open(url, '_blank', 'noopener, noreferrer');
   };
 
   return (
@@ -55,7 +21,9 @@ const GuestInsurance = () => {
       </div>
       <div className={styles.header}>
         <div className={styles.label}>보험</div>
-        <Button>보험 가입하기</Button>
+        <Button onClick={() => handleOpenTab('https://www.hwgeneralins.com/')}>
+          보험 가입하기
+        </Button>
       </div>
       <div className={styles.introduce}>
         <div className={styles.commonHeader}>
@@ -76,22 +44,29 @@ const GuestInsurance = () => {
           <div className={styles.value}>{Dummy.benefit.workingTime}</div>
         </div>
       </div>
-      <div className={styles.content}>
-        <div className={styles.commonHeader}>
-          <span>{Dummy.insuranceItem.header}</span>
-          <span>{Dummy.insuranceItem.subHeader}</span>
-        </div>
-        <div className={styles.commonDivider} />
-        <div className={styles.contentList}>
-          {Dummy.insuranceItem.dropDown.map((text) => {
-            return (
-              <div className={styles.listElement} key={text.header}>
-                <span>{text.header}</span>
-                <img src={DownChevorn} alt="더보기" />
+      <div>
+        {Dummy.insuranceItem.map((item) => {
+          return (
+            <div className={styles.content} key={item.header}>
+              <div className={styles.commonHeader}>
+                <span>{item.header}</span>
+                <span>{item.subHeader}</span>
               </div>
-            );
-          })}
-        </div>
+              <div className={styles.commonDivider} />
+              <div className={styles.contentList}>
+                {item.dropDown.map((text) => {
+                  return (
+                    <InsuranceDropDown
+                      key={text.header}
+                      header={text.header}
+                      content={text.content}
+                    ></InsuranceDropDown>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

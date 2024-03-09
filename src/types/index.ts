@@ -10,24 +10,15 @@ export interface OrderListData {
   }[];
 }
 
-export interface InsuranceData {
+export interface InsuranceDataContent {
+  [kind: string]: string[];
+}
+
+export interface insuranceData {
+  isJoin: boolean;
   joinDate: string;
-  nextDate: string;
-  progress: {
-    progressRate: number;
-    previousDay: number;
-    remainDays: number;
-  };
-  insuranceContent: {
-    header: string;
-    subHeader: string;
-    labels: string[];
-  };
-  insuranceTerm: {
-    header: string;
-    subHeader: string;
-    labels: string[];
-  };
+  updateDate: string;
+  insuranceRate: number;
 }
 
 export interface GuestInsuranceData {
@@ -43,9 +34,9 @@ export interface GuestInsuranceData {
     subHeader: string;
     dropDown: {
       header: string;
-      content: string;
+      content: InsuranceDataContent[];
     }[];
-  };
+  }[];
 }
 
 export interface DronePartData {
