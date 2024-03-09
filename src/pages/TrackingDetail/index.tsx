@@ -11,20 +11,7 @@ import { ProductInformation } from '@/pages/TrackingDetail/atoms/ProductInformat
 import { TrackingStep } from '@/pages/TrackingDetail/atoms/TrackingStep';
 import { getTrackingDetail } from '@/services/trackingApi';
 
-import TestImg from '../Tracking/atoms/test.png';
-
 import styles from './TrackingDetail.module.scss';
-
-const Dummy = {
-  arrivalDate: '2월 28일 수요일',
-  startDate: '2월 24일 월요일',
-  image: TestImg,
-  name: '블레이드',
-  description: 'DJI 아바타 드론 블레이드 프로펠러 교체용 경량 날개 팬 프로펠러 액세서리',
-  count: 1,
-  price: 7500,
-  step: 'arrived',
-};
 
 export const TrackingDetail = () => {
   const [activeCancelModal, setActiveCancelModal] = useState(false);
@@ -53,7 +40,7 @@ export const TrackingDetail = () => {
               currentStatus={data.currentStatus}
               productsInfos={data.productInfos}
             />
-            <TrackingStep product={Dummy} />
+            <TrackingStep currentStatus={data.currentStatus} pastDates={data.pastDates} />
           </div>
           {data.currentStatus === '주문대기중' && (
             <Button

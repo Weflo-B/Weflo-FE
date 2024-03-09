@@ -119,24 +119,16 @@ export interface ProductInfos {
   productImage: string;
 }
 
+export interface PastDates {
+  status: string;
+  date: string;
+}
+
 export interface GetTrackingDetailData {
   orderDate: string;
   estimateDate: string;
   currentStatus: string;
-  pastDates: [
-    {
-      status: string;
-      date: string;
-    },
-    {
-      status: string;
-      date: string;
-    },
-    {
-      status: string;
-      date: string;
-    },
-  ];
+  pastDates: PastDates[];
   productInfos: ProductInfos;
   sellerInfos: {
     deliveryCompany: string;
