@@ -2,21 +2,18 @@ import { useEffect, useState } from 'react';
 
 import { useQuery } from 'react-query';
 import { Outlet } from 'react-router-dom';
-import { useSetRecoilState } from 'recoil';
 
 import FloatingBtn from '@/assets/icons/floatingBtn.svg';
 import { USER_ID } from '@/services';
 import { getAllParts } from '@/services/orderApi';
 import { DronePartData } from '@/types';
-
-import { orderCountState } from '../../recoil/orderCountState';
+import { setOrderCount } from '@/utils/orderCount';
 
 import styles from './Order.module.scss';
 import DroneItem from './atoms/DroneItem';
 
 const Order = () => {
   const [allOrders, setAllOrders] = useState<DronePartData[]>();
-  const setOrderCount = useSetRecoilState(orderCountState);
 
   const { data } = useQuery({
     queryKey: ['ORDER_PARTS', 'ALL', USER_ID],
