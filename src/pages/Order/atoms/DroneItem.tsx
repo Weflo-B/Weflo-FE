@@ -62,9 +62,9 @@ const DroneItem = ({ drone }: DroneItemProps) => {
               return (
                 <tr key={t.category} className={styles.tableContent}>
                   {Object.values(t).map((v, key) => {
-                    const isCenter = key === 5 || key === 6;
+                    const isCenter = key === 6 || key === 7;
 
-                    if (key === 0 || key === 3 || key === 4) {
+                    if (key === 0 || key === 1 || key === 4 || key === 5) {
                       return;
                     }
 
