@@ -12,7 +12,6 @@ interface OrderListProps {
 
 export const OrderList = ({ orderList }: OrderListProps) => {
   const groupOrderList = groupByOrderDate(orderList);
-  console.log(Object.keys(groupOrderList));
 
   return (
     <section className={styles.listContainer}>

@@ -12,13 +12,6 @@ import { GetTrackingData } from '@/types';
 
 import styles from './Tracking.module.scss';
 
-const Dummy2 = {
-  month: 3,
-  paymentMonth: 4,
-  paymentDate: 15,
-  totalPrice: 77980,
-};
-
 export const Tracking = () => {
   const [activeStatus, setActiveStatus] = useState<string>('');
   const [month, setMonth] = useState<number>(new Date().getMonth() + 1);
@@ -44,7 +37,7 @@ export const Tracking = () => {
         </div>
       </div>
       <div className={styles.content}>
-        <OrderInformation month={month} information={Dummy2} />
+        {initialData && <OrderInformation month={month} sumPrice={initialData.sumPrice} />}
         {initialData && (
           <OrderSteps
             activeStatus={activeStatus}
