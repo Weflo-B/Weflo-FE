@@ -1,29 +1,27 @@
-import { useState } from 'react';
-
-import { useQuery } from 'react-query';
+import { useMutation, useQuery } from 'react-query';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import Button from '@/components/Button';
 import { Completed } from '@/pages/Estimate/atoms/Completed';
 import { USER_ID } from '@/services';
-import { getEstimate } from '@/services/estimateApi';
-import { GetEstimateData } from '@/types';
+import { getEstimate, patchOrderEstimate } from '@/services/estimateApi';
 
 import styles from './Estimate.module.scss';
 
 export const Estimate = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const [initialData, setInitialData] = useState<GetEstimateData | null>(null);
-  useQuery({
+
+  const { mutate } = useMutation(patchOrderEstimate, {
+    onSuccess: () => {
+      navigate('?completed=true');
+    },
+  });
+
+  const { data } = useQuery({
     queryKey: ['ESTIMATE', USER_ID],
     queryFn: () => getEstimate(),
     staleTime: 300000, // 5분
-    onSuccess: (fetchedData) => {
-      if (!initialData) {
-        setInitialData(fetchedData);
-      }
-    },
   });
 
   const options = {
@@ -44,13 +42,11 @@ export const Estimate = () => {
         </div>
         <span className={styles.title}>견적서</span>
       </div>
-      {initialData && (
+      {data && (
         <section className={styles.estimateContainer}>
           <div className={styles.estimateTitle}>
-            <span>{initialData.name}</span>
-            <span>
-              주문일 {new Date(initialData.orderDate).toLocaleDateString('ko-KR', options)}
-            </span>
+            <span>{data.name}</span>
+            <span>주문일 {new Date(data.orderDate).toLocaleDateString('ko-KR', options)}</span>
           </div>
           <div className={styles.estimateInformationContainer}>
             <table>
@@ -64,7 +60,7 @@ export const Estimate = () => {
                 </tr>
               </thead>
               <tbody>
-                {initialData.productsInfo.map((item) => (
+                {data.productsInfo.map((item) => (
                   <tr key={item.name}>
                     <td>
                       <div>
@@ -80,10 +76,13 @@ export const Estimate = () => {
                 ))}
               </tbody>
             </table>
-            <div className={styles.totalPrice}>
-              총액 = {initialData.sumPrice.toLocaleString()}원
-            </div>
-            <Button style={{ marginRight: '55px' }} onClick={() => navigate('?completed=true')}>
+            <div className={styles.totalPrice}>총액 = {data.sumPrice.toLocaleString()}원</div>
+            <Button
+              style={{ marginRight: '55px' }}
+              onClick={() => {
+                mutate();
+              }}
+            >
               주문하기
             </Button>
           </div>

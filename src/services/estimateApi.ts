@@ -11,3 +11,14 @@ export const getEstimate = async () => {
   const data = (await response.json()) as { data: GetEstimateData };
   return data.data;
 };
+
+export const patchOrderEstimate = async () => {
+  const response = await fetch(`${BASE_URL}/api/orders/${USER_ID}`);
+
+  if (!response.ok) {
+    throw Error('Failed to update estimate order data');
+  }
+
+  const data = await response.json();
+  return data.isSuccess;
+};
