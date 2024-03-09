@@ -45,15 +45,15 @@ const DroneDetailItem = ({ drone }: DroneDetailItemProps) => {
                   key={index}
                 >
                   <div className={styles.partKind}>{data.category}</div>
-                  {data.partsScore.map((t, index) => {
-                    return (
-                      <div className={styles.partDetail} key={index}>
-                        <div>
+                  <div className={styles.partDetail}>
+                    {data.partsScore.map((t, index) => {
+                      return (
+                        <div key={index}>
                           {t.name} ({t.score}점)
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                 </div>
               );
             })}
