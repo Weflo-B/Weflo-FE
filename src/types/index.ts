@@ -36,7 +36,7 @@ export interface GuestInsuranceData {
       header: string;
       content: InsuranceDataContent[];
     }[];
-  };
+  }[];
 }
 
 export interface DronePartData {

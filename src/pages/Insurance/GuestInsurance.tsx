@@ -44,23 +44,29 @@ const GuestInsurance = () => {
           <div className={styles.value}>{Dummy.benefit.workingTime}</div>
         </div>
       </div>
-      <div className={styles.content}>
-        <div className={styles.commonHeader}>
-          <span>{Dummy.insuranceItem.header}</span>
-          <span>{Dummy.insuranceItem.subHeader}</span>
-        </div>
-        <div className={styles.commonDivider} />
-        <div className={styles.contentList}>
-          {Dummy.insuranceItem.dropDown.map((text) => {
-            return (
-              <InsuranceDropDown
-                key={text.header}
-                header={text.header}
-                content={text.content}
-              ></InsuranceDropDown>
-            );
-          })}
-        </div>
+      <div>
+        {Dummy.insuranceItem.map((item) => {
+          return (
+            <div className={styles.content}>
+              <div className={styles.commonHeader}>
+                <span>{item.header}</span>
+                <span>{item.subHeader}</span>
+              </div>
+              <div className={styles.commonDivider} />
+              <div className={styles.contentList}>
+                {item.dropDown.map((text) => {
+                  return (
+                    <InsuranceDropDown
+                      key={text.header}
+                      header={text.header}
+                      content={text.content}
+                    ></InsuranceDropDown>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
