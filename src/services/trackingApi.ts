@@ -24,3 +24,25 @@ export const getTrackingDetail = async (historyId: number) => {
   const data = (await response.json()) as { data: GetTrackingDetailData };
   return data.data;
 };
+
+export const patchDeliveryStatus = async ({
+  historyId,
+  status,
+}: {
+  historyId: number;
+  status: string;
+}) => {
+  const response = await fetch(
+    `${BASE_URL}/api/delivery/details?order_history_id=${historyId}&status=${status}`,
+    {
+      method: 'patch',
+    },
+  );
+
+  if (!response.ok) {
+    throw Error('Failed to update delivery status data');
+  }
+
+  const data = (await response.json()) as { data: { deliveryDetailStatus: string } };
+  return data.data;
+};

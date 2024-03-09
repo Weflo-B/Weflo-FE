@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import * as Dialog from '@radix-ui/react-dialog';
 
 import IconClose from '@/assets/icons/dialog/close.svg';
@@ -9,6 +7,8 @@ import styles from './RadioButtonDialog.module.scss';
 
 interface RadioButtonDialogProps {
   open: boolean;
+  selectedStatus: string;
+  handleStatusChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onCloseClick: () => void;
   onConfirmClick: () => void;
   text: string;
@@ -16,16 +16,12 @@ interface RadioButtonDialogProps {
 
 export const RadioButtonDialog = ({
   open,
+  selectedStatus,
+  handleStatusChange,
   onCloseClick,
   onConfirmClick,
   text,
 }: RadioButtonDialogProps) => {
-  const [selectedValue, setSelectedValue] = useState('');
-
-  const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedValue(event.target.value);
-  };
-
   return (
     <Dialog.Root open={open}>
       <Dialog.Portal>
@@ -39,8 +35,8 @@ export const RadioButtonDialog = ({
                   type="radio"
                   name="group"
                   value="exchange"
-                  checked={selectedValue === 'exchange'}
-                  onChange={handleOptionChange}
+                  checked={selectedStatus === 'exchange'}
+                  onChange={handleStatusChange}
                 />
                 교환
               </label>
@@ -49,8 +45,8 @@ export const RadioButtonDialog = ({
                   type="radio"
                   name="group"
                   value="return"
-                  checked={selectedValue === 'return'}
-                  onChange={handleOptionChange}
+                  checked={selectedStatus === 'return'}
+                  onChange={handleStatusChange}
                 />
                 반품
               </label>

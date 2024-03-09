@@ -1,17 +1,18 @@
 import { useState } from 'react';
 
-import { useQuery } from 'react-query';
+import { useMutation, useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import IconCancel from '@/assets/icons/dialog/cancel.svg';
 import IconCompleted from '@/assets/icons/dialog/completed.svg';
 import Button from '@/components/Button';
 import { DefaultDialog } from '@/components/Dialog/DefaultDialog';
+import { RadioButtonDialog } from '@/components/Dialog/RadioButtonDialog';
 import { BuyerInformation } from '@/pages/TrackingDetail/atoms/Information/BuyerInformation';
 import { SellerInformation } from '@/pages/TrackingDetail/atoms/Information/SellerInformation';
 import { ProductInformation } from '@/pages/TrackingDetail/atoms/ProductInformation';
 import { TrackingStep } from '@/pages/TrackingDetail/atoms/TrackingStep';
-import { getTrackingDetail } from '@/services/trackingApi';
+import { getTrackingDetail, patchDeliveryStatus } from '@/services/trackingApi';
 
 import styles from './TrackingDetail.module.scss';
 
@@ -19,14 +20,35 @@ export const TrackingDetail = () => {
   const [activeCancelModal, setActiveCancelModal] = useState(false);
   const [activeCompletedModal, setActiveCompletedModal] = useState(false);
   const navigate = useNavigate();
+  const [activeExchangeReturnModal, setActiveExchangeReturnModal] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState('');
   const { historyId } = useParams();
-  const { data } = useQuery({
+
+  const handleStatusChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedStatus(event.target.value);
+  };
+
+  const { data: productData } = useQuery({
     queryKey: ['TRACKING_DETAIL', historyId],
     queryFn: () => getTrackingDetail(parseInt(historyId ? historyId : '0')),
     staleTime: 300000, // 5분
   });
 
-  if (data)
+  const { mutate } = useMutation(patchDeliveryStatus, {
+    onSuccess: (data) => {
+      if (data.deliveryDetailStatus === '주문취소') {
+        setActiveCancelModal(true);
+      } else {
+        setActiveExchangeReturnModal(false);
+        setActiveCompletedModal(true);
+      }
+    },
+    onError: (err) => {
+      console.log(err);
+    },
+  });
+
+  if (productData)
     return (
       <>
         <main className={styles.container}>
@@ -38,55 +60,73 @@ export const TrackingDetail = () => {
           </div>
           <div className={styles.content}>
             <ProductInformation
-              estimateDate={data.estimateDate}
-              currentStatus={data.currentStatus}
-              productsInfos={data.productInfos}
+              estimateDate={productData.estimateDate}
+              currentStatus={productData.currentStatus}
+              productsInfos={productData.productInfos}
             />
             <div className={styles.deliveryContainer}>
-              <SellerInformation sellerInfos={data.sellerInfos} />
-              <BuyerInformation buyerInfos={data.buyerInfos} />
+              <SellerInformation sellerInfos={productData.sellerInfos} />
+              <BuyerInformation buyerInfos={productData.buyerInfos} />
             </div>
-            <TrackingStep currentStatus={data.currentStatus} pastDates={data.pastDates} />
+            <TrackingStep
+              currentStatus={productData.currentStatus}
+              pastDates={productData.pastDates}
+            />
           </div>
-          {data.currentStatus === '주문대기중' && (
+          {productData.currentStatus === '주문대기중' && (
             <Button
               style={{ position: 'absolute', bottom: '80px', left: '1565px' }}
-              onClick={() => setActiveCancelModal(true)} /* API 연결할 땐 이 로직 아님 */
+              onClick={() => {
+                mutate({ historyId: parseInt(historyId ? historyId : '0'), status: '주문취소' });
+              }}
             >
               주문 취소하기
             </Button>
           )}
-          {data.currentStatus === '배송완료' && (
+          {productData.currentStatus !== '배송완료' && (
             <Button
               style={{ position: 'absolute', bottom: '80px', left: '1565px' }}
-              onClick={() => setActiveCompletedModal(true)} /* API 연결할 땐 이 로직 아님 */
+              onClick={() => setActiveExchangeReturnModal(true)} /* API 연결할 땐 이 로직 아님 */
             >
               교환/반품하기
             </Button>
           )}
         </main>
-        {activeCancelModal && (
-          <DefaultDialog
-            icon={<img src={IconCancel} alt="icon" />}
-            text="주문이 취소되었습니다!"
-            open={activeCancelModal}
-            onClick={() => {
-              setActiveCancelModal(false);
-              navigate('/tracking');
-            }}
-          />
-        )}
-        {activeCompletedModal && (
-          <DefaultDialog
-            icon={<img src={IconCompleted} alt="icon" />}
-            text="교환 / 반품 접수가 완료되었어요!"
-            open={activeCompletedModal}
-            onClick={() => {
-              setActiveCompletedModal(false);
-              navigate('/tracking');
-            }}
-          />
-        )}
+        <DefaultDialog
+          icon={<img src={IconCancel} alt="icon" />}
+          text="주문이 취소되었습니다!"
+          open={activeCancelModal}
+          onClick={() => {
+            setActiveCancelModal(false);
+            navigate('/tracking');
+          }}
+        />
+        <RadioButtonDialog
+          text="교환 / 반품 접수"
+          open={activeExchangeReturnModal}
+          selectedStatus={selectedStatus}
+          handleStatusChange={handleStatusChange}
+          onCloseClick={() => {
+            setActiveExchangeReturnModal(false);
+          }}
+          onConfirmClick={() => {
+            if (selectedStatus !== '') {
+              mutate({
+                historyId: parseInt(historyId ? historyId : '0'),
+                status: selectedStatus,
+              });
+            }
+          }}
+        />
+        <DefaultDialog
+          icon={<img src={IconCompleted} alt="icon" />}
+          text="교환 / 반품 접수가 완료되었어요!"
+          open={activeCompletedModal}
+          onClick={() => {
+            setActiveCompletedModal(false);
+            navigate('/tracking');
+          }}
+        />
       </>
     );
 };
