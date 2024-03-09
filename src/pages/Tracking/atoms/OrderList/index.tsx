@@ -37,7 +37,7 @@ export const OrderList = ({ orderList }: OrderListProps) => {
                     </div>
                   </div>
                   {item.status !== '주문취소' && (
-                    <Link to="detail">
+                    <Link to={`detail/${item.id}`}>
                       <Button style={{ height: 'fit-content', padding: '20px 46px' }}>
                         배송상세 조회
                       </Button>
