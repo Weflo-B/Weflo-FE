@@ -1,5 +1,3 @@
-import React from 'react';
-
 import RightChevron from '@/assets/icons/rightChevron.svg';
 import Button from '@/components/Button';
 import { Dummy } from '@/constants/insuranceConstants';

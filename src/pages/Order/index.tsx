@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Outlet } from 'react-router-dom';
 
 import DroneImg from '@/assets/icons/droneImg.svg';

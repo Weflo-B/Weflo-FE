@@ -1,6 +1,4 @@
-import React from 'react';
-
-import { useParams } from 'react-router-dom';
+//import { useParams } from 'react-router-dom';
 
 import DroneImg from '@/assets/icons/droneImg.svg';
 import RightChevron from '@/assets/icons/rightChevron.svg';
@@ -14,7 +12,7 @@ import DroneDetailItem from './atoms/DroneDetailItem';
 
 const OrderDetail = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { droneId } = useParams();
+  //const { droneId } = useParams();
 
   // API 연결할 때 상세 화면에서 새로 호출 -> 이전 화면에서 받아올 필요 x
   // 일단 더미 데이터로 구현

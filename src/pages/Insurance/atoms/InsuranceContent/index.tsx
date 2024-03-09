@@ -1,5 +1,3 @@
-import React from 'react';
-
 import styles from './InsuranceContent.module.scss';
 
 interface InsuranceContentProp {
