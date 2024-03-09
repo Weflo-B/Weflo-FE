@@ -110,3 +110,43 @@ export interface GetTrackingData {
   orderStatuses: OrderStatus[];
   orderHistories: OrderHistory[];
 }
+
+export interface ProductInfos {
+  category: string;
+  name: string;
+  salePrice: number;
+  amount: number;
+  productImage: string;
+}
+
+export interface GetTrackingDetailData {
+  orderDate: string;
+  estimateDate: string;
+  currentStatus: string;
+  pastDates: [
+    {
+      status: string;
+      date: string;
+    },
+    {
+      status: string;
+      date: string;
+    },
+    {
+      status: string;
+      date: string;
+    },
+  ];
+  productInfos: ProductInfos;
+  sellerInfos: {
+    deliveryCompany: string;
+    deliveryTel: string;
+    invoiceNumber: string;
+    seller: string;
+  };
+  buyerInfos: {
+    name: string;
+    tel: string;
+    address: string;
+  };
+}

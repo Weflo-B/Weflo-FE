@@ -24,8 +24,10 @@ export const Router = () => {
           <Route path="detail/:droneId" element={<OrderDetail />} />
           <Route path="estimate" element={<Estimate />} />
         </Route>
-        <Route path="/tracking" element={<Tracking />} />
-        <Route path="/tracking/detail" element={<TrackingDetail />} />
+        <Route path="/tracking">
+          <Route index element={<Tracking />} />
+          <Route path="detail/:historyId" element={<TrackingDetail />} />
+        </Route>
       </Route>
     </Routes>
   );
