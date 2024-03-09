@@ -28,7 +28,7 @@ const DroneItem = ({ drone }: DroneItemProps) => {
     <div className={styles.container} key={drone.nickname}>
       <div className={styles.droneHeader}>
         <div className={styles.droneProfile}>
-          <img src={drone.droneImg} alt="드론 이미지" />
+          <img className={styles.droneImg} src={drone.droneImg} alt="드론 이미지" />
           <div>{drone.nickname}</div>
         </div>
         <div className={styles.scoreContainer}>

@@ -8,6 +8,17 @@ interface DroneDetailItemProps {
 }
 
 const DroneDetailItem = ({ drone }: DroneDetailItemProps) => {
+  const formatDate = (stringDate: string) => {
+    const d = new Date(stringDate);
+    const date = new Intl.DateTimeFormat('ko-KR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }).format(d);
+
+    return date;
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -22,7 +33,7 @@ const DroneDetailItem = ({ drone }: DroneDetailItemProps) => {
             </div>
             <div className={styles.info}>
               <div className={styles.label}>주문일</div>
-              <div className={styles.value}>{drone?.orderDate}</div>
+              <div className={styles.value}>{drone?.orderDate && formatDate(drone?.orderDate)}</div>
             </div>
           </div>
           <div className={styles.partInfo}>

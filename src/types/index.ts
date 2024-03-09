@@ -60,6 +60,7 @@ export interface DronePartData {
 
 export interface PartOnSaleData {
   productImage: string;
+  estimateDate: string;
   category: string;
   name: string;
   price: number;

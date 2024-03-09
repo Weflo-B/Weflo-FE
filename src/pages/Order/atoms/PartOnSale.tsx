@@ -12,10 +12,21 @@ const PartOnSale = ({ part }: PartOnSaleProps) => {
     return returnString;
   };
 
+  const formatDate = (stringDate: string) => {
+    const d = new Date(stringDate);
+    const date = new Intl.DateTimeFormat('ko-KR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }).format(d);
+
+    return date;
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <div className={styles.date}>{part.amount} 도착 예정</div>
+        <div className={styles.date}>{formatDate(part.estimateDate)} 도착 예정</div>
         <img src={part.productImage} alt="드론 부품 이미지" className={styles.partImg} />
         <div className={styles.content}>
           <div className={styles.partName}>{part.category}</div>
