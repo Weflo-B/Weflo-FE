@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { useQuery } from 'react-query';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 import FloatingBtn from '@/assets/icons/floatingBtn.svg';
 import { USER_ID } from '@/services';
@@ -14,6 +14,7 @@ import DroneItem from './atoms/DroneItem';
 
 const Order = () => {
   const [allOrders, setAllOrders] = useState<DronePartData[]>();
+  const navigate = useNavigate();
 
   const { data } = useQuery({
     queryKey: ['ORDER_PARTS', 'ALL', USER_ID],
@@ -40,7 +41,13 @@ const Order = () => {
           })}
       </div>
       <div className={styles.floatingBtnContainer}>
-        <button type="button" className={styles.floatingBtn}>
+        <button
+          type="button"
+          className={styles.floatingBtn}
+          onClick={() => {
+            navigate('estimate');
+          }}
+        >
           <img src={FloatingBtn} alt="플로팅 버튼" />
           <div>견적서</div>
         </button>
