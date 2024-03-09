@@ -33,7 +33,7 @@ export const Tracking = () => {
         <span className={styles.pageDescription}>주문/배송조회</span>
         <div className={styles.titleInnerContainer}>
           <span className={styles.title}>주문 / 배송조회</span>
-          <MonthDropdown month={month} setMonth={setMonth} />
+          <MonthDropdown month={month} setMonth={setMonth} setInitialData={setInitialData} />
         </div>
       </div>
       <div className={styles.content}>
@@ -64,7 +64,11 @@ export const Tracking = () => {
             }
           />
         )}
-        {data && <OrderList orderList={data.orderHistories} />}
+        {data && (
+          <OrderList
+            orderList={data.orderHistories.filter((history) => history.status !== '주문대기중')}
+          />
+        )}
       </div>
     </main>
   );

@@ -5,15 +5,17 @@
 import { useEffect, useRef, useState } from 'react';
 
 import IconDropdown from '@/assets/icons/dropdown.svg';
+import { GetTrackingData } from '@/types';
 
 import styles from './MonthDropdown.module.scss';
 
 interface MonthDropdownProps {
   month: number;
   setMonth: (month: number) => void;
+  setInitialData: (data: GetTrackingData | null) => void;
 }
 
-export const MonthDropdown = ({ month, setMonth }: MonthDropdownProps) => {
+export const MonthDropdown = ({ month, setMonth, setInitialData }: MonthDropdownProps) => {
   const [activeDropdown, setActiveDropdown] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -53,6 +55,7 @@ export const MonthDropdown = ({ month, setMonth }: MonthDropdownProps) => {
                 className={`${month === index + 1 && styles.activeMonth}`}
                 onClick={() => {
                   setMonth(index + 1);
+                  setInitialData(null);
                   setActiveDropdown(false);
                 }}
               >
