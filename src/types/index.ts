@@ -1,15 +1,3 @@
-export interface OrderListData {
-  date: string;
-  items: {
-    image: string;
-    title: string;
-    subTitle: string;
-    count: number;
-    state: string;
-    price: number;
-  }[];
-}
-
 export interface InsuranceDataContent {
   [kind: string]: string[];
 }
@@ -101,12 +89,12 @@ export interface GetEstimateData {
   sumPrice: number;
 }
 
-export interface OrderStatuses {
+export interface OrderStatus {
   amount: number;
   statusName: string;
 }
 
-interface OrderHistories {
+export interface OrderHistory {
   id: number;
   category: string;
   name: string;
@@ -119,6 +107,6 @@ interface OrderHistories {
 
 export interface GetTrackingData {
   sumPrice: number;
-  orderStatuses: OrderStatuses[];
-  orderHistories: OrderHistories[];
+  orderStatuses: OrderStatus[];
+  orderHistories: OrderHistory[];
 }

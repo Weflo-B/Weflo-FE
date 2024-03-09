@@ -8,84 +8,9 @@ import { OrderList } from '@/pages/Tracking/atoms/OrderList';
 import { OrderSteps } from '@/pages/Tracking/atoms/OrderSteps';
 import { USER_ID } from '@/services';
 import { getTracking } from '@/services/trackingApi';
-import { GetTrackingData, OrderListData } from '@/types';
+import { GetTrackingData } from '@/types';
 
 import styles from './Tracking.module.scss';
-import DummyImage from './atoms/test.png';
-
-const Dummy: OrderListData[] = [
-  {
-    date: '2024.02.01',
-    items: [
-      {
-        image: DummyImage,
-        title: '블레이드',
-        subTitle: 'DJI 아바타 드론 블레이드 프로펠러 교체용 경량 날개 팬 프로펠러 액세서리',
-        count: 1,
-        state: 'cancel',
-        price: 7500,
-      },
-      {
-        image: DummyImage,
-        title: '블레이드2',
-        subTitle: 'DJI 아바타 드론 블레이드 프로펠러 교체용 경량 날개 팬 프로펠러 액세서리',
-        count: 2,
-        state: 'preparing',
-        price: 7500,
-      },
-      {
-        image: DummyImage,
-        title: '블레이드3',
-        subTitle: 'DJI 아바타 드론 블레이드 프로펠러 교체용 경량 날개 팬 프로펠러 액세서리',
-        count: 2,
-        state: 'delivering',
-        price: 7500,
-      },
-      {
-        image: DummyImage,
-        title: '블레이드4',
-        subTitle: 'DJI 아바타 드론 블레이드 프로펠러 교체용 경량 날개 팬 프로펠러 액세서리',
-        count: 2,
-        state: 'completed',
-        price: 7500,
-      },
-    ],
-  },
-  {
-    date: '2024.02.02',
-    items: [
-      {
-        image: DummyImage,
-        title: '블레이드5',
-        subTitle: 'DJI 아바타 드론 블레이드 프로펠러 교체용 경량 날개 팬 프로펠러 액세서리',
-        count: 2,
-        state: 'completed',
-        price: 7500,
-      },
-      {
-        image: DummyImage,
-        title: '블레이드6',
-        subTitle: 'DJI 아바타 드론 블레이드 프로펠러 교체용 경량 날개 팬 프로펠러 액세서리',
-        count: 10,
-        state: 'confirm',
-        price: 7500,
-      },
-    ],
-  },
-  {
-    date: '2024.02.03',
-    items: [
-      {
-        image: DummyImage,
-        title: '블레이드7',
-        subTitle: 'DJI 아바타 드론 블레이드 프로펠러 교체용 경량 날개 팬 프로펠러 액세서리',
-        count: 2,
-        state: 'confirm',
-        price: 7500,
-      },
-    ],
-  },
-];
 
 const Dummy2 = {
   month: 3,
@@ -97,7 +22,7 @@ const Dummy2 = {
 export const Tracking = () => {
   const [activeStatus, setActiveStatus] = useState<string>('');
   const [month, setMonth] = useState<number>(new Date().getMonth() + 1);
-  const [initialData, setInitialData] = useState<GetTrackingData>(null);
+  const [initialData, setInitialData] = useState<GetTrackingData | null>(null);
   const { data } = useQuery({
     queryKey: ['TRACKING', USER_ID, month, activeStatus],
     queryFn: () => getTracking(month, activeStatus),
@@ -146,16 +71,7 @@ export const Tracking = () => {
             }
           />
         )}
-        <OrderList
-          orderList={
-            activeStatus === ''
-              ? Dummy
-              : Dummy.map((order) => ({
-                  date: order.date,
-                  items: order.items.filter((item) => item.state === activeStatus),
-                }))
-          }
-        />
+        {data && <OrderList orderList={data.orderHistories} />}
       </div>
     </main>
   );
