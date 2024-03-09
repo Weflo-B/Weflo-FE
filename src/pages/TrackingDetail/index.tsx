@@ -7,6 +7,8 @@ import IconCancel from '@/assets/icons/dialog/cancel.svg';
 import IconCompleted from '@/assets/icons/dialog/completed.svg';
 import Button from '@/components/Button';
 import { DefaultDialog } from '@/components/Dialog/DefaultDialog';
+import { BuyerInformation } from '@/pages/TrackingDetail/atoms/Information/BuyerInformation';
+import { SellerInformation } from '@/pages/TrackingDetail/atoms/Information/SellerInformation';
 import { ProductInformation } from '@/pages/TrackingDetail/atoms/ProductInformation';
 import { TrackingStep } from '@/pages/TrackingDetail/atoms/TrackingStep';
 import { getTrackingDetail } from '@/services/trackingApi';
@@ -40,6 +42,10 @@ export const TrackingDetail = () => {
               currentStatus={data.currentStatus}
               productsInfos={data.productInfos}
             />
+            <div className={styles.deliveryContainer}>
+              <SellerInformation sellerInfos={data.sellerInfos} />
+              <BuyerInformation buyerInfos={data.buyerInfos} />
+            </div>
             <TrackingStep currentStatus={data.currentStatus} pastDates={data.pastDates} />
           </div>
           {data.currentStatus === '주문대기중' && (

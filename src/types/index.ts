@@ -124,21 +124,25 @@ export interface PastDates {
   date: string;
 }
 
+export interface SellerInfos {
+  deliveryCompany: string;
+  deliveryTel: string;
+  invoiceNumber: string;
+  seller: string;
+}
+
+export interface BuyerInfos {
+  name: string;
+  tel: string;
+  address: string;
+}
+
 export interface GetTrackingDetailData {
   orderDate: string;
   estimateDate: string;
   currentStatus: string;
   pastDates: PastDates[];
   productInfos: ProductInfos;
-  sellerInfos: {
-    deliveryCompany: string;
-    deliveryTel: string;
-    invoiceNumber: string;
-    seller: string;
-  };
-  buyerInfos: {
-    name: string;
-    tel: string;
-    address: string;
-  };
+  sellerInfos: SellerInfos;
+  buyerInfos: BuyerInfos;
 }
