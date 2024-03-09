@@ -18,7 +18,7 @@ export const OrderList = ({ orderList }: OrderListProps) => {
       <div className={styles.orderListContainer}>
         {Object.keys(groupOrderList).map((date) => (
           <div key={date}>
-            <div className={styles.date}>{date}</div>
+            <div className={styles.date}>{date.replaceAll('-', '.')}</div>
             <div className={styles.itemList}>
               {groupOrderList[date].map((item) => (
                 <div
