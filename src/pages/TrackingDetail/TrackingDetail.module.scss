@@ -20,7 +20,7 @@
       line-height: normal;
       opacity: 0.8;
     }
-
+    
     .title {
       @include H1;
       color: $main-5;
@@ -36,9 +36,5 @@
       display: flex;
       gap: 54px;
     }
-  }
-
-  .buttonContainer {
-    margin: 28px 0;
   }
 }

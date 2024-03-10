@@ -9,7 +9,6 @@ import styles from './Navigation.module.scss';
 
 export const Navigation = () => {
   const location = useLocation();
-
   const count = useRecoilValue(orderCountSelector);
 
   return (

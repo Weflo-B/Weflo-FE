@@ -56,7 +56,6 @@ export const MonthDropdown = ({ month, setInitialData }: MonthDropdownProps) => 
                 key={index}
                 className={`${month === index + 1 && styles.activeMonth}`}
                 onClick={() => {
-                  //setMonth(index + 1);
                   navigate(`/tracking?month=${index + 1}`);
                   setInitialData(null);
                   setActiveDropdown(false);
