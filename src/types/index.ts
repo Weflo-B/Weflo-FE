@@ -85,3 +85,18 @@ export interface DronePartDetailData {
   productsInfo: PartOnSaleData[];
   abnormalities: Abnormality[];
 }
+
+export interface GetEstimateData {
+  name: string;
+  orderDate: string;
+  productsInfo: {
+    productImage: string;
+    category: string;
+    name: string;
+    price: number;
+    salePrice: number;
+    totalPrice: number;
+    amount: number;
+  }[];
+  sumPrice: number;
+}
