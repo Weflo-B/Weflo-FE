@@ -4,6 +4,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
 import IconDropdown from '@/assets/icons/dropdown.svg';
 import { GetTrackingData } from '@/types';
 
@@ -11,13 +13,13 @@ import styles from './MonthDropdown.module.scss';
 
 interface MonthDropdownProps {
   month: number;
-  setMonth: (month: number) => void;
   setInitialData: (data: GetTrackingData | null) => void;
 }
 
-export const MonthDropdown = ({ month, setMonth, setInitialData }: MonthDropdownProps) => {
+export const MonthDropdown = ({ month, setInitialData }: MonthDropdownProps) => {
   const [activeDropdown, setActiveDropdown] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -54,7 +56,7 @@ export const MonthDropdown = ({ month, setMonth, setInitialData }: MonthDropdown
                 key={index}
                 className={`${month === index + 1 && styles.activeMonth}`}
                 onClick={() => {
-                  setMonth(index + 1);
+                  navigate(`/tracking?month=${index + 1}`);
                   setInitialData(null);
                   setActiveDropdown(false);
                 }}

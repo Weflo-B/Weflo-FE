@@ -9,12 +9,12 @@ import IconTracking from '@/assets/icons/tracking.svg';
 export const NAVIGATION_MENU_LIST = [
   {
     title: '드론진단',
-    path: '/drone',
+    path: '',
     icon: IconDrone,
   },
   {
     title: '모니터링',
-    path: '/monitoring',
+    path: '',
     icon: IconMonitoring,
   },
   {
@@ -24,12 +24,12 @@ export const NAVIGATION_MENU_LIST = [
   },
   {
     title: '주문/배송 조회',
-    path: '/tracking',
+    path: `/tracking?month=${new Date().getMonth() + 1}`,
     icon: IconTracking,
   },
   {
     title: '수리/점검',
-    path: '/check',
+    path: '',
     icon: IconCheck,
   },
   {

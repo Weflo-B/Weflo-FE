@@ -4,9 +4,5 @@ export const setOrderCount = (newCount: number) => {
 
 export const getOrderCount = () => {
   const count = localStorage.getItem('orderCount');
-  if (count) {
-    return count;
-  } else {
-    return 0;
-  }
+  return count;
 };

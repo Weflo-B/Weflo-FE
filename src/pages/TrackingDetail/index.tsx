@@ -54,9 +54,7 @@ export const TrackingDetail = () => {
         <main className={styles.container}>
           <div className={styles.titleContainer}>
             <span className={styles.pageDescription}>주문/배송조회</span>
-            <div className={styles.titleInnerContainer}>
-              <span className={styles.title}>주문 / 배송조회</span>
-            </div>
+            <span className={styles.title}>주문 / 배송조회</span>
           </div>
           <div className={styles.content}>
             <ProductInformation
@@ -72,25 +70,30 @@ export const TrackingDetail = () => {
               currentStatus={productData.currentStatus}
               pastDates={productData.pastDates}
             />
+            <div>
+              {productData.currentStatus === '배송시작' && (
+                <Button
+                  style={{ float: 'right' }}
+                  onClick={() => {
+                    mutate({
+                      historyId: parseInt(historyId ? historyId : '0'),
+                      status: '주문취소',
+                    });
+                  }}
+                >
+                  주문 취소하기
+                </Button>
+              )}
+              {productData.currentStatus === '종료' && (
+                <Button
+                  style={{ float: 'right' }}
+                  onClick={() => setActiveExchangeReturnModal(true)}
+                >
+                  교환/반품하기
+                </Button>
+              )}
+            </div>
           </div>
-          {productData.currentStatus === '주문대기중' && (
-            <Button
-              style={{ position: 'absolute', bottom: '80px', left: '1565px' }}
-              onClick={() => {
-                mutate({ historyId: parseInt(historyId ? historyId : '0'), status: '주문취소' });
-              }}
-            >
-              주문 취소하기
-            </Button>
-          )}
-          {(productData.currentStatus === '배송완료' || productData.currentStatus === '종료') && (
-            <Button
-              style={{ position: 'absolute', bottom: '80px', left: '1565px' }}
-              onClick={() => setActiveExchangeReturnModal(true)}
-            >
-              교환/반품하기
-            </Button>
-          )}
         </main>
         <DefaultDialog
           icon={<img src={IconCancel} alt="icon" />}

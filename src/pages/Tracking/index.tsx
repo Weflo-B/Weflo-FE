@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { useQuery } from 'react-query';
+import { useSearchParams } from 'react-router-dom';
 
 import { MonthDropdown } from '@/pages/Tracking/atoms/MonthDropdown';
 import { OrderInformation } from '@/pages/Tracking/atoms/OrderInformation';
@@ -14,9 +15,10 @@ import styles from './Tracking.module.scss';
 
 export const Tracking = () => {
   const [activeStatus, setActiveStatus] = useState<string>('');
-  const [month, setMonth] = useState<number>(new Date().getMonth() + 1);
+  const [searchParams] = useSearchParams();
+  const month = parseInt(searchParams.get('month') ?? `${new Date().getMonth() + 1}`);
   const [initialData, setInitialData] = useState<GetTrackingData | null>(null);
-  const { data } = useQuery({
+  const { data, refetch } = useQuery({
     queryKey: ['TRACKING', USER_ID, month, activeStatus],
     queryFn: () => getTracking(month, activeStatus),
     onSuccess: (fetchedData) => {
@@ -28,7 +30,9 @@ export const Tracking = () => {
 
   useEffect(() => {
     setInitialData(null);
-  }, [month]);
+    setActiveStatus('');
+    refetch();
+  }, [searchParams]);
 
   return (
     <main className={styles.container}>
@@ -36,7 +40,7 @@ export const Tracking = () => {
         <span className={styles.pageDescription}>주문/배송조회</span>
         <div className={styles.titleInnerContainer}>
           <span className={styles.title}>주문 / 배송조회</span>
-          <MonthDropdown month={month} setMonth={setMonth} setInitialData={setInitialData} />
+          <MonthDropdown month={month} setInitialData={setInitialData} />
         </div>
       </div>
       <div className={styles.content}>
