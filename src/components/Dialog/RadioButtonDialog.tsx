@@ -34,8 +34,8 @@ export const RadioButtonDialog = ({
                 <input
                   type="radio"
                   name="group"
-                  value="exchange"
-                  checked={selectedStatus === 'exchange'}
+                  value="교환"
+                  checked={selectedStatus === '교환'}
                   onChange={handleStatusChange}
                 />
                 교환
@@ -44,8 +44,8 @@ export const RadioButtonDialog = ({
                 <input
                   type="radio"
                   name="group"
-                  value="return"
-                  checked={selectedStatus === 'return'}
+                  value="반품"
+                  checked={selectedStatus === '반품'}
                   onChange={handleStatusChange}
                 />
                 반품
