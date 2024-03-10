@@ -26,7 +26,7 @@ export const Router = () => {
           <Route index element={<Tracking />} />
           <Route path="detail/:historyId" element={<TrackingDetail />} />
         </Route>
-        <Route path="*" element={<Navigate to="/tracking" />} />
+        <Route path="*" element={<Navigate to="/order" />} />
       </Route>
     </Routes>
   );

@@ -11,7 +11,7 @@ import styles from './TrackingStep.module.scss';
 
 const DELIVERING_STEP = [
   { step: '배송시작', image: IconDelivery },
-  { step: '잡화처리', image: IconReceived },
+  { step: '집화처리', image: IconReceived },
   { step: '간선상차', image: IconDelivery },
   { step: '간선하차', image: IconRoute },
   { step: '배송완료', image: IconArrived },
