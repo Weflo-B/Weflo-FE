@@ -23,7 +23,7 @@ export const ProductInformation = ({
   return (
     <section className={styles.container}>
       <div className={styles.arrivalInformation}>
-        {currentStatus === '배송완료' ? (
+        {currentStatus === '종료' || currentStatus === '구매확정' ? (
           <>
             <span>{estimateDate} 배송 완료</span>
             <span>고객님이 주문하신 상품이 배송완료되었어요.</span>
