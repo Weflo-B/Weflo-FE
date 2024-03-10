@@ -15,7 +15,7 @@ const GuestInsurance = () => {
       <div className={styles.subHeader}>
         <span>보험</span>
         <img src={RightChevron} alt="left-chevron" />
-        <span>가입자</span>
+        <span>미가입자</span>
       </div>
       <div className={styles.header}>
         <div className={styles.label}>보험</div>
