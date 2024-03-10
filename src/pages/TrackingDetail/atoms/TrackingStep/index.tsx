@@ -1,3 +1,5 @@
+import React from 'react';
+
 import IconArrived from '@/assets/icons/order/arrived.svg';
 import IconDelivery from '@/assets/icons/order/delivery.svg';
 import IconReceived from '@/assets/icons/order/received.svg';
@@ -32,7 +34,7 @@ export const TrackingStep = ({ currentStatus, pastDates }: TrackingStepProps) =>
       <div className={styles.innerContainer}>
         <div className={styles.stepList}>
           {DELIVERING_STEP.map((item, index) => (
-            <>
+            <React.Fragment key={item.step}>
               <div className={`${styles.stepBox} ${currentStatus === item.step && styles.active}`}>
                 <div className={styles.description}>
                   <span className={styles.step}>{item.step}</span>
@@ -47,7 +49,7 @@ export const TrackingStep = ({ currentStatus, pastDates }: TrackingStepProps) =>
               {index !== DELIVERING_STEP.length - 1 && (
                 <img src={RightChevornProcess} alt="rightChevron" />
               )}
-            </>
+            </React.Fragment>
           ))}
         </div>
         <span>
