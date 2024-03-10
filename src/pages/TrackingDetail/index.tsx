@@ -83,7 +83,7 @@ export const TrackingDetail = () => {
               주문 취소하기
             </Button>
           )}
-          {productData.currentStatus !== '배송완료' && (
+          {(productData.currentStatus === '배송완료' || productData.currentStatus === '종료') && (
             <Button
               style={{ position: 'absolute', bottom: '80px', left: '1565px' }}
               onClick={() => setActiveExchangeReturnModal(true)} /* API 연결할 땐 이 로직 아님 */
