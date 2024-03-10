@@ -84,8 +84,7 @@ export const TrackingDetail = () => {
                   주문 취소하기
                 </Button>
               )}
-              {(productData.currentStatus === '배송완료' ||
-                productData.currentStatus === '종료') && (
+              {productData.currentStatus === '종료' && (
                 <Button
                   style={{ float: 'right' }}
                   onClick={() => setActiveExchangeReturnModal(true)}
