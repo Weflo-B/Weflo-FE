@@ -20,11 +20,18 @@ export const Navigation = () => {
       <ul>
         {NAVIGATION_MENU_LIST.map((menu) => (
           <Link key={menu.title} to={menu.path}>
-            <li className={location.pathname.startsWith(menu.path) ? styles.active : ''}>
-              <img className={styles.icon} src={menu.icon} alt={menu.title} />
-              <span>{menu.title}</span>
-              {menu.title === '부품주문' && <span className={styles.orderCount}>{count}</span>}
-            </li>
+            {menu.title === '주문/배송 조회' ? (
+              <li className={menu.path.includes(location.pathname) ? styles.active : ''}>
+                <img className={styles.icon} src={menu.icon} alt={menu.title} />
+                <span>{menu.title}</span>
+              </li>
+            ) : (
+              <li className={location.pathname.startsWith(menu.path) ? styles.active : ''}>
+                <img className={styles.icon} src={menu.icon} alt={menu.title} />
+                <span>{menu.title}</span>
+                {menu.title === '부품주문' && <span className={styles.orderCount}>{count}</span>}
+              </li>
+            )}
           </Link>
         ))}
       </ul>

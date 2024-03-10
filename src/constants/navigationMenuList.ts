@@ -24,7 +24,7 @@ export const NAVIGATION_MENU_LIST = [
   },
   {
     title: '주문/배송 조회',
-    path: '/tracking',
+    path: `/tracking?month=${new Date().getMonth() + 1}`,
     icon: IconTracking,
   },
   {
