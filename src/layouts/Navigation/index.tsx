@@ -17,22 +17,41 @@ export const Navigation = () => {
         <img className={styles.logo} src={Logo} alt="logo" />
       </Link>
       <ul>
-        {NAVIGATION_MENU_LIST.map((menu) => (
-          <Link key={menu.title} to={menu.path}>
-            {menu.title === '주문/배송 조회' ? (
-              <li className={menu.path.includes(location.pathname) ? styles.active : ''}>
+        {NAVIGATION_MENU_LIST.map((menu) => {
+          if (menu.path === '')
+            return (
+              <li
+                key={menu.title}
+                className={
+                  menu.path !== '' && location.pathname.startsWith(menu.path) ? styles.active : ''
+                }
+              >
                 <img className={styles.icon} src={menu.icon} alt={menu.title} />
                 <span>{menu.title}</span>
               </li>
-            ) : (
-              <li className={location.pathname.startsWith(menu.path) ? styles.active : ''}>
-                <img className={styles.icon} src={menu.icon} alt={menu.title} />
-                <span>{menu.title}</span>
-                {menu.title === '부품주문' && <span className={styles.orderCount}>{count}</span>}
-              </li>
-            )}
-          </Link>
-        ))}
+            );
+
+          return (
+            <Link key={menu.title} to={menu.path}>
+              {menu.title === '주문/배송 조회' ? (
+                <li className={menu.path.includes(location.pathname) ? styles.active : ''}>
+                  <img className={styles.icon} src={menu.icon} alt={menu.title} />
+                  <span>{menu.title}</span>
+                </li>
+              ) : (
+                <li
+                  className={
+                    menu.path !== '' && location.pathname.startsWith(menu.path) ? styles.active : ''
+                  }
+                >
+                  <img className={styles.icon} src={menu.icon} alt={menu.title} />
+                  <span>{menu.title}</span>
+                  {menu.title === '부품주문' && <span className={styles.orderCount}>{count}</span>}
+                </li>
+              )}
+            </Link>
+          );
+        })}
       </ul>
       <hr />
     </nav>
