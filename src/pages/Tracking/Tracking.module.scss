@@ -1,0 +1,40 @@
+@import 'src/styles/style.scss';
+
+.container {
+  margin: 30px 40px; //
+  width: 100%;
+
+  .titleContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 54px;
+
+    .pageDescription {
+      color: #212121;
+
+      font-family: Pretendard;
+      font-size: 17px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      opacity: 0.8;
+    }
+
+    .titleInnerContainer {
+      display: flex;
+      gap: 44px;
+
+      .title {
+        @include H1;
+        color: $main-5;
+      }
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+  }
+}

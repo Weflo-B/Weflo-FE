@@ -1,0 +1,98 @@
+@import 'src/styles/style.scss';
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  animation: overlayShow 0.3s;
+}
+
+.content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+
+  width: 630px;
+  height: 360px;
+  padding: 0 98px;
+
+  background-color: $white;
+  border-radius: 24px;
+
+  animation: overlayShow 0.3s;
+
+  .contentInnerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+
+    width: 100%;
+
+    .description {
+      color: $main-5;
+      @include H1;
+    }
+
+    .radioContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 24px;
+
+      width: 100%;
+
+      label {
+        color: $black;
+        @include H3;
+
+        display: flex;
+        gap: 21px;
+        width: fit-content;
+        cursor: pointer;
+
+        input {
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          width: 30px;
+          height: 30px;
+          background-color: #d9d9d9;
+          box-shadow: 0 0 0 2px #d9d9d9;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+
+        input[type='radio']:checked {
+          background-color: #1f599e;
+          border: 6px solid $white;
+          box-shadow: 0 0 0 2px #1f599e;
+        }
+      }
+    }
+  }
+
+  .closed {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+  }
+}

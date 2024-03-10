@@ -1,0 +1,64 @@
+@import 'src/styles/style.scss';
+
+.stepsContainer {
+  padding: 48px 40px;
+  background-color: $white;
+  box-shadow: 6px 6px 54px rgba(0, 0, 0, 0.05);
+  border-radius: 24px;
+
+  .stepsContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .totalCount {
+      display: flex;
+      gap: 35px;
+
+      @include H2;
+      color: $main-4;
+    }
+
+    .stepList {
+      display: flex;
+      gap: 9px;
+
+      .step {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 259px;
+        padding: 22px 26px;
+        border-radius: 14px;
+        box-shadow: 6px 6px 54px 0px rgba(0, 0, 0, 0.05);
+
+        background-color: $white;
+        border: 1px solid #d1d1d1;
+
+        :first-child {
+          @include H2;
+          color: $main-4;
+        }
+
+        :nth-child(2) {
+          @include H2;
+          color: #7e7e7e;
+          background-color: $gray-1;
+          padding: 13px;
+          border-radius: 23px;
+        }
+      }
+
+      .active {
+        background-color: #aed9ef;
+        border: none;
+
+        :nth-child(2) {
+          color: $white;
+          background-color: $main-1;
+        }
+      }
+    }
+  }
+}

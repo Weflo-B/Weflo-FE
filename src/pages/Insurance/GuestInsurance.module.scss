@@ -1,0 +1,132 @@
+@import 'src/styles/style.scss';
+
+.container {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.subHeader {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  margin-left: 40px;
+
+  :first-child {
+    // 타이포에 정의 x
+    font-family: 'Pretendard';
+    font-size: 17px;
+    font-weight: 500;
+    color: #212121;
+  }
+
+  :nth-child(3) {
+    @include Body2;
+    font-size: 17px;
+  }
+}
+
+.header {
+  width: 100%;
+  margin-top: 28px;
+  margin-left: 42px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1115px;
+
+  .label {
+    @include H1;
+    color: $main-5;
+  }
+
+  .btn {
+    background-color: $main-3;
+  }
+}
+
+.introduce {
+  width: 100%;
+  height: 299px;
+  margin-top: 50px;
+  margin-left: 41px;
+  padding: 40px 25px;
+
+  background-color: $white;
+  border-radius: 24px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.commonHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-left: 4px;
+
+  :first-child {
+    @include H3;
+    color: $main-1;
+  }
+
+  :nth-child(2) {
+    @include Body4;
+    color: #212121;
+  }
+}
+
+.commonDivider {
+  width: 100%;
+  height: 2px;
+  margin-top: 20px;
+  background-color: #212121;
+  opacity: 0.1;
+}
+
+.introContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 30px;
+
+  @include Body4;
+}
+
+.introFooter {
+  display: flex;
+  margin-top: 10px;
+  margin-left: 15px;
+  gap: 10px;
+
+  .label {
+    @include Body1;
+    font-size: 16px;
+  }
+
+  .value {
+    @include Body4;
+  }
+}
+
+.content {
+  width: 100%;
+  height: fit-content;
+  margin-top: 24px;
+  margin-left: 41px;
+  padding: 40px 25px 38px 25px;
+  white-space: pre-wrap;
+
+  background-color: $white;
+  border-radius: 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  .contentList {
+    margin-top: 21px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}

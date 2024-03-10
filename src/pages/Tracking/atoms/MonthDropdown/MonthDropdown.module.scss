@@ -1,0 +1,73 @@
+@import 'src/styles/style.scss';
+
+.container {
+  position: relative;
+
+  .contentContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 160px;
+    padding: 10px 15px;
+    background-color: $white;
+    border-radius: 50px;
+    border: 1px solid $gray-2;
+
+    .month {
+      margin-left: 15px;
+      color: $main-5;
+      opacity: 0.6;
+
+      font-family: Pretendard;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22px;
+    }
+
+    img {
+      transition: transform 0.5s ease;
+    }
+
+    .activeButton {
+      transform: rotate(-180deg);
+    }
+  }
+
+  .boxContainer {
+    position: absolute;
+
+    display: flex;
+    border-radius: 20px;
+    border: 1px solid $gray-2;
+    background-color: $white;
+
+    width: 160px;
+    margin-top: 5px;
+
+    ul {
+      width: 100%;
+
+      li {
+        padding: 10px 30px;
+        color: #4b4b4b;
+        opacity: 0.6;
+
+        font-family: Pretendard;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+
+        cursor: pointer;
+      }
+
+      .activeMonth {
+        background-color: $background;
+        color: $main-4;
+        opacity: 0.6;
+      }
+    }
+  }
+}

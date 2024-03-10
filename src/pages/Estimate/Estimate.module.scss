@@ -1,0 +1,162 @@
+@import 'src/styles/style.scss';
+
+.container {
+  margin: 30px 40px;
+  width: 100%;
+
+  .titleContainer {
+    margin-bottom: 41px;
+
+    .pageDescription {
+      color: #212121;
+
+      font-family: Pretendard;
+      font-size: 17px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      opacity: 0.8;
+    }
+
+    .title {
+      @include H1;
+      color: $main-5;
+    }
+  }
+
+  .estimateContainer {
+    background-color: $white;
+    box-shadow: 6px 6px 54px rgba(0, 0, 0, 0.05);
+    border-radius: 24px;
+
+    padding: 47px 41px;
+
+    .estimateTitle {
+      display: flex;
+      gap: 20px;
+      align-items: flex-end;
+      margin-bottom: 44px;
+
+      :first-child {
+        color: $main-1;
+        @include H1;
+      }
+
+      :nth-child(2) {
+        color: #212121;
+
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+
+    .estimateInformationContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 28px;
+
+      table {
+        width: 100%;
+
+        thead {
+          border-radius: 20px;
+          tr {
+            color: $main-5;
+            @include Body1;
+            background-color: $gray-1;
+
+            th {
+              padding: 20px 0;
+            }
+
+            :first-child {
+              border-radius: 15px 0 0 15px;
+              padding: 0 30px;
+              width: 188px;
+              text-align: left;
+            }
+
+            :nth-child(2) {
+              text-align: left;
+              padding: 0 33px;
+            }
+
+            :nth-child(3) {
+              width: 176px;
+            }
+
+            :nth-child(4) {
+              width: 176px;
+            }
+
+            :nth-child(5) {
+              width: 176px;
+              border-radius: 0 15px 15px 0;
+            }
+          }
+        }
+
+        tbody {
+          tr {
+            border-bottom: 0.5px solid rgba(151, 151, 151, 0.4);
+            border-radius: 30px;
+
+            td {
+              padding: 28px 0;
+              vertical-align: middle;
+            }
+
+            :first-child {
+              display: flex;
+              align-items: center;
+
+              color: $main-5;
+              @include Body2;
+
+              img {
+                width: 45px;
+                height: 45px;
+                margin: 0 25px;
+              }
+            }
+
+            td:nth-child(2) {
+              padding: 0 33px;
+              @include Body3;
+            }
+
+            :nth-child(3) {
+              text-align: center;
+              color: $main-5;
+              @include Body2;
+            }
+
+            :nth-child(4) {
+              text-align: center;
+              color: $main-5;
+              @include Body2;
+            }
+
+            :nth-child(5) {
+              text-align: center;
+              color: $main-5;
+              @include Body2;
+            }
+          }
+        }
+      }
+
+      .totalPrice {
+        color: $main-5;
+        @include H3;
+        margin-right: 55px;
+        margin-top: 10px;
+      }
+    }
+  }
+}

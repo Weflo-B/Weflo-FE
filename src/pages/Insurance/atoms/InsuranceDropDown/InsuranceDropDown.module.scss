@@ -1,0 +1,48 @@
+@import 'src/styles/style.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.closed {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 20px;
+
+  background-color: $gray-1;
+  border-radius: 15.237px;
+  @include H5;
+}
+
+.open {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 15px;
+
+  background-color: $gray-1;
+  border-radius: 15.237px;
+
+  .openList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .openElement {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .header {
+    @include H5;
+  }
+
+  .content {
+    @include Body3;
+    font-size: 20px;
+  }
+}
