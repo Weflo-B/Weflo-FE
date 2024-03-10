@@ -11,7 +11,17 @@ export const OrderInformation = ({ month, sumPrice }: OrderInformationProps) => 
   return (
     <section className={styles.historyContainer}>
       <div className={styles.title}>
-        <div className={styles.orderTitle}>{month}월의 주문 내역</div>
+        {month > today.getMonth() + 1 && (
+          <div className={styles.orderTitle}>{month}월의 결제 내역</div>
+        )}
+        {month === today.getMonth() + 1 && (
+          <div className={styles.orderTitle}>
+            {month}월의 {today.getDate() < 15 ? '결제' : '주문'} 내역
+          </div>
+        )}
+        {month < today.getMonth() + 1 && (
+          <div className={styles.orderTitle}>{month}월의 주문 내역</div>
+        )}
         <div className={styles.orderDescription}>
           {month > today.getMonth() + 1 && <span className={styles.dueDate}>결제 예정일 | </span>}
           {month === today.getMonth() + 1 && (

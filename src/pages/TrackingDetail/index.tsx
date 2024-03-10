@@ -86,7 +86,7 @@ export const TrackingDetail = () => {
           {(productData.currentStatus === '배송완료' || productData.currentStatus === '종료') && (
             <Button
               style={{ position: 'absolute', bottom: '80px', left: '1565px' }}
-              onClick={() => setActiveExchangeReturnModal(true)} /* API 연결할 땐 이 로직 아님 */
+              onClick={() => setActiveExchangeReturnModal(true)}
             >
               교환/반품하기
             </Button>
