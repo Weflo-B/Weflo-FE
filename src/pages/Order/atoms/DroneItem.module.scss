@@ -23,6 +23,10 @@
   @include H1;
   font-size: 23.975px;
   color: $main-5;
+
+  .droneImg {
+    border-radius: 9px;
+  }
 }
 
 .scoreContainer {
@@ -70,9 +74,6 @@
 
     .tableHeader {
       // background-color: #fafafb;
-      border: 0.6px solid $gray-2;
-      border-radius: 9px 9px 0px 0px;
-      background-color: $gray-1;
 
       color: $main-5;
       font-family: Pretendard;
@@ -81,10 +82,27 @@
 
       :first-child {
         padding: 10px 0px 10px 59px;
+        border: 0.6px solid $gray-2;
+        border-radius: 9px 0px 0px 0px;
+        border-right: none;
+        background-color: $gray-1;
+      }
+
+      :nth-child(2),
+      :nth-child(3) {
+        padding: 10px 0px 10px 0px;
+        border: 0.6px solid $gray-2;
+        border-right: none;
+        border-left: none;
+        background-color: $gray-1;
       }
 
       :last-child {
         padding: 10px 108px 10px 0px;
+        border: 0.6px solid $gray-2;
+        border-radius: 0px 9px 0px 0px;
+        border-left: none;
+        background-color: $gray-1;
       }
 
       .thNotCenter {

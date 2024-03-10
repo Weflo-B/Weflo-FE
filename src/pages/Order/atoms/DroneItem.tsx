@@ -25,11 +25,11 @@ const DroneItem = ({ drone }: DroneItemProps) => {
   };
 
   return (
-    <div className={styles.container} key={drone.name}>
+    <div className={styles.container} key={drone.nickname}>
       <div className={styles.droneHeader}>
         <div className={styles.droneProfile}>
-          <img src={drone.img} alt="드론 이미지" />
-          <div>{drone.name}</div>
+          <img className={styles.droneImg} src={drone.droneImg} alt="드론 이미지" />
+          <div>{drone.nickname}</div>
         </div>
         <div className={styles.scoreContainer}>
           <div className={styles.score}>
@@ -58,16 +58,20 @@ const DroneItem = ({ drone }: DroneItemProps) => {
             </tr>
           </thead>
           <tbody>
-            {drone.dronePart.map((t) => {
+            {drone.productsInfo.map((t) => {
               return (
-                <tr key={t.kind} className={styles.tableContent}>
+                <tr key={t.category} className={styles.tableContent}>
                   {Object.values(t).map((v, key) => {
-                    const isCenter = key === 2 || key === 3;
+                    const isCenter = key === 6 || key === 7;
+
+                    if (key === 0 || key === 1 || key === 4 || key === 5) {
+                      return;
+                    }
 
                     // 천 원 단위로 콤마 추가
                     let price = '';
-                    const isPrice = key === 2;
-                    if (key === 2 && typeof v === 'number') {
+                    const isPrice = key === 5;
+                    if (isPrice && typeof v === 'number') {
                       price = addComma(v);
                     }
 

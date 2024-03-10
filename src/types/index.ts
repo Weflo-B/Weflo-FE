@@ -40,40 +40,48 @@ export interface GuestInsuranceData {
 }
 
 export interface DronePartData {
-  img: string;
-  name: string;
   id: number;
+  droneImg: string;
+  nickname: string;
   balanceScore: number;
   totalScore: number;
-  dronePart: {
-    kind: string;
-    detail: string;
+  orderDate: string;
+  estimateDate: string;
+  productsInfo: {
+    productImage: string;
+    category: string;
+    name: string;
     price: number;
-    num: number;
+    // salePrice: number;
+    // totalPrice: number;
+    amount: number;
   }[];
 }
 
 export interface PartOnSaleData {
-  [kind: string]: {
-    img: string;
-    detail: string;
-    salePrice: number;
-    wefloPrice: number;
-    num: number;
-    arrivalDate: string;
-  };
+  productImage: string;
+  estimateDate: string;
+  category: string;
+  name: string;
+  price: number;
+  salePrice: number;
+  totalPrice: number;
+  amount: number;
+}
+
+interface Abnormality {
+  category: string;
+  partsScore: {
+    name: string;
+    score: number;
+  }[];
 }
 
 export interface DronePartDetailData {
-  img: string;
-  name: string;
   id: number;
+  droneImg: string;
+  nickname: string;
   orderDate: string;
-  currentPart: {
-    [kind: string]: {
-      name: string;
-      score: number;
-    }[];
-  }[];
-  salePart: PartOnSaleData[];
+  productsInfo: PartOnSaleData[];
+  abnormalities: Abnormality[];
 }
