@@ -1,14 +1,16 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 
 import Logo from '@/assets/logo/logo.webp';
 import { NAVIGATION_MENU_LIST } from '@/constants/navigationMenuList';
-import { getOrderCount } from '@/utils/orderCount';
+import { orderCountSelector } from '@/states/orderCount';
 
 import styles from './Navigation.module.scss';
 
 export const Navigation = () => {
   const location = useLocation();
-  const count = getOrderCount();
+
+  const count = useRecoilValue(orderCountSelector);
 
   return (
     <nav className={styles.container}>
