@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useQuery } from 'react-query';
 
@@ -19,13 +19,16 @@ export const Tracking = () => {
   const { data } = useQuery({
     queryKey: ['TRACKING', USER_ID, month, activeStatus],
     queryFn: () => getTracking(month, activeStatus),
-    staleTime: 300000, // 5분
     onSuccess: (fetchedData) => {
       if (!initialData) {
         setInitialData(fetchedData);
       }
     },
   });
+
+  useEffect(() => {
+    setInitialData(null);
+  }, [month]);
 
   return (
     <main className={styles.container}>
