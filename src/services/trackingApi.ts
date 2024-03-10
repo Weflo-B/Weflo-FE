@@ -35,7 +35,7 @@ export const patchDeliveryStatus = async ({
   const response = await fetch(
     `${BASE_URL}/api/delivery/details?order_history_id=${historyId}&status=${status}`,
     {
-      method: 'patch',
+      method: 'PATCH',
     },
   );
 
