@@ -2,3 +2,9 @@
 @import './settings/typo.scss';
 @import 'scss-reset/reset';
 @import './settings/reset.scss';
+
+@media (max-width: 1800px) {
+  :root {
+    zoom: 0.8;
+  }
+}
