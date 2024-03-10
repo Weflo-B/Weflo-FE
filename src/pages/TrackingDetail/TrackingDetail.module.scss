@@ -36,5 +36,10 @@
     display: flex;
     flex-direction: column;
     gap: 38px;
+
+    .deliveryContainer {
+      display: flex;
+      gap: 54px;
+    }
   }
 }

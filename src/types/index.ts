@@ -1,15 +1,3 @@
-export interface OrderListData {
-  date: string;
-  items: {
-    image: string;
-    title: string;
-    subTitle: string;
-    count: number;
-    state: string;
-    price: number;
-  }[];
-}
-
 export interface InsuranceDataContent {
   [kind: string]: string[];
 }
@@ -99,4 +87,62 @@ export interface GetEstimateData {
     amount: number;
   }[];
   sumPrice: number;
+}
+
+export interface OrderStatus {
+  amount: number;
+  statusName: string;
+}
+
+export interface OrderHistory {
+  id: number;
+  category: string;
+  name: string;
+  salePrice: number;
+  amount: number;
+  orderDate: string;
+  productImage: string;
+  status: string;
+}
+
+export interface GetTrackingData {
+  sumPrice: number;
+  orderStatuses: OrderStatus[];
+  orderHistories: OrderHistory[];
+}
+
+export interface ProductInfos {
+  category: string;
+  name: string;
+  salePrice: number;
+  amount: number;
+  productImage: string;
+}
+
+export interface PastDates {
+  status: string;
+  date: string;
+}
+
+export interface SellerInfos {
+  deliveryCompany: string;
+  deliveryTel: string;
+  invoiceNumber: string;
+  seller: string;
+}
+
+export interface BuyerInfos {
+  name: string;
+  tel: string;
+  address: string;
+}
+
+export interface GetTrackingDetailData {
+  orderDate: string;
+  estimateDate: string;
+  currentStatus: string;
+  pastDates: PastDates[];
+  productInfos: ProductInfos;
+  sellerInfos: SellerInfos;
+  buyerInfos: BuyerInfos;
 }

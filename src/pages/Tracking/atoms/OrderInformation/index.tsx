@@ -2,20 +2,38 @@ import styles from './OrderInformation.module.scss';
 
 interface OrderInformationProps {
   month: number;
-  information: { month: number; paymentMonth: number; paymentDate: number; totalPrice: number };
+  sumPrice: number;
 }
 
-export const OrderInformation = ({ month, information }: OrderInformationProps) => {
+export const OrderInformation = ({ month, sumPrice }: OrderInformationProps) => {
+  const today = new Date();
+
   return (
     <section className={styles.historyContainer}>
       <div className={styles.title}>
-        <div className={styles.orderTitle}>{month}월의 주문 내역</div>
+        {month > today.getMonth() + 1 && (
+          <div className={styles.orderTitle}>{month}월의 결제 내역</div>
+        )}
+        {month === today.getMonth() + 1 && (
+          <div className={styles.orderTitle}>
+            {month}월의 {today.getDate() < 15 ? '결제' : '주문'} 내역
+          </div>
+        )}
+        {month < today.getMonth() + 1 && (
+          <div className={styles.orderTitle}>{month}월의 주문 내역</div>
+        )}
         <div className={styles.orderDescription}>
-          <span className={styles.dueDate}>결제 예정일 | </span>
-          <span>{`${information.paymentMonth}월 ${information.paymentDate}일`}</span>
+          {month > today.getMonth() + 1 && <span className={styles.dueDate}>결제 예정일 | </span>}
+          {month === today.getMonth() + 1 && (
+            <span className={styles.dueDate}>
+              {today.getDate() < 15 ? '결제 완료일 | ' : '결제 예정일 | '}
+            </span>
+          )}
+          {month < today.getMonth() + 1 && <span className={styles.dueDate}>결제 완료일 | </span>}
+          <span>{`${month + 1 > 12 ? 1 : month + 1}월 ${15}일`}</span>
         </div>
       </div>
-      <div className={styles.totalPrice}>{`${information.totalPrice.toLocaleString()}원`}</div>
+      <div className={styles.totalPrice}>{`${sumPrice.toLocaleString()}원`}</div>
     </section>
   );
 };
