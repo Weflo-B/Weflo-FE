@@ -29,6 +29,7 @@
     li {
       display: flex;
       gap: 33px;
+      align-items: center;
 
       @include Body2;
       color: $main-5;

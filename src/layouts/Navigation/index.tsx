@@ -23,7 +23,7 @@ export const Navigation = () => {
             <li className={location.pathname.startsWith(menu.path) ? styles.active : ''}>
               <img className={styles.icon} src={menu.icon} alt={menu.title} />
               <span>{menu.title}</span>
-              {menu.title === '부품주문' && <div className={styles.orderCount}>{count}</div>}
+              {menu.title === '부품주문' && <span className={styles.orderCount}>{count}</span>}
             </li>
           </Link>
         ))}
